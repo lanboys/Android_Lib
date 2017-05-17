@@ -1,6 +1,7 @@
 gitHub快速编译
 ./gradlew assembleDebug
 
+7777777777777777
 
 
 
