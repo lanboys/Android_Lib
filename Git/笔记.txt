@@ -2,6 +2,11 @@ gitHub快速编译
 ./gradlew assembleDebug
 
 
-
+ 
 
 三个分支  master  dev  debug 分支都干净的情况下，向文件夹（如dev分支）添加一个 test.txt 文件，不 add 不commit 情况下，checkout到别的 分支（master），都能看到该文件，但是 在某一个分支下（如 debug ）add commit 后，其他分支就看不到了
+
+
+
+// lg 日志别名
+git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
