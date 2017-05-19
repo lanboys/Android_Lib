@@ -1,7 +1,11 @@
 gitHub快速编译
 ./gradlew assembleDebug
 
+<<<<<<< HEAD
  
+=======
+7777777777777777
+>>>>>>> dev
 
  
 
