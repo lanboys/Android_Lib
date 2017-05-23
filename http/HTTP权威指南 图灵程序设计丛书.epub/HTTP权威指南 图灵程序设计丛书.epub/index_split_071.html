@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos475649" class="calibre_"><span class="calibre3"><span class="bold">7.2　带宽瓶颈</span></span></p><p class="calibre_">缓存还可以缓解网络的瓶颈问题。很多网络为本地网络客户端提供的带宽比为远程服务器提供的带宽要宽（参见图 7-1）。客户端会以路径上最慢的网速访问服务器。如果客户端从一个快速局域网的缓存中得到了一份副本，那么缓存就可以提高性能——尤其是要传输比较大的文件时。</p><p class="calibre_8"><img src="images/00140.jpg" class="calibre_123"/></p><p class="calibre_10"><span class="calibre7">图 7-1　缓存可以改善由有限广域带宽造成的网络瓶颈</span></p><p class="calibre_">在图 7-1 中，Joe 的五金商店旧金山分店的用户通过 1.4Mbit/s 的 T1 因特网连接，从亚特兰大总店下载一个 5MB 的库存文件要花 30 秒的时间。如果在旧金山分店里缓存了这个文档，本地用户通过以太网连接只要花费不到 1 秒的时间就可以获得同一份文档了。</p><p class="calibre_">表 7-1 说明了在几种不同的网速下，传输几种不同大小的文档时，带宽会对传输速度产生什么样的影响。带宽会给较大的文档带来显而易见的时延，不同类型网络的速度差异会非常明显。<sup class="calibre4"><small class="calibre5"><span class="calibre6">1</span></small></sup> 一个 54kbit/s 的 Modem 传输一个 5MB 的文件需要 749 秒（超过 12 分钟），而在快速以太网 LAN 中，只要不到一秒的时间。</p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">1 这张表只列出了网络带宽对传输时间的影响。它假定网络效率为 100%，而且不存在网络或应用程序的处理时延。通过这种方式给出的时延是下限值。实际的时延要大一些，而小型对象的时延则主要是由非带宽开销造成的。</span></small></sup></p><p class="calibre_"><span class="bold">表7-1　带宽造成的传输时延，理想化情况（以秒为时间单位）</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_69"><span class="calibre7"><span class="bold">  </span></span>
+</th><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> 大型HTML</span></span><br class="calibre2"/><span class="calibre7"><span class="bold"> </span></span><span class="calibre7"><span class="bold">（15KB）</span></span>
+</th><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> JPEG</span></span><br class="calibre2"/><span class="calibre7"><span class="bold"> </span></span><span class="calibre7"><span class="bold">（40KB）</span></span>
+</th><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> 大型JPEG</span></span><br class="calibre2"/><span class="calibre7"><span class="bold"> </span></span><span class="calibre7"><span class="bold">（150KB）</span></span>
+</th><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> 大型文件</span></span><br class="calibre2"/><span class="calibre7"><span class="bold"> </span></span><span class="calibre7"><span class="bold">（5MB）</span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 拨号modem（56kbit/s） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 2.19 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 5.85 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 21.94 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 748.98 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> DSL（256Kbit/s） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 0.48 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 1.28 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 4.80 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 163.84 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> T1（1.4Mbit/s） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 0.09 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 0.23 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 0.85 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 29.13 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 慢速以太网（10Mbit/s） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 0.01 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 0.03 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 0.12 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 4.19 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> DS3（45Mbit/s） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 0.00 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 0.01 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 0.03 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 0.93 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 快速以太网（100Mbit/s） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 0.00 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 0.00 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 0.01 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 0.42 </span>
+</td></tr></table><div class="mbp_pagebreak" id="calibre_pb_71"></div>
+</body></html>

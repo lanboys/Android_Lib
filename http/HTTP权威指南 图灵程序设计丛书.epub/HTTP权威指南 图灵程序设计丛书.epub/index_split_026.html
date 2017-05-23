@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos123480" class="calibre_"><span class="calibre3"><span class="bold">2.4　各种令人头疼的字符</span></span></p><p class="calibre_">URL 是<span class="bold">可移植的</span>（portable）。它要统一地命名因特网上所有的资源，这也就意味着要通过各种不同的协议来传送这些资源。这些协议在传输数据时都会使用不同的机制，所以，设计 URL，使其可以通过任意因特网协议安全地传输是很重要的。</p><p class="calibre_">安全传输意味着 URL 的传输不能丢失信息。有些协议，比如传输电子邮件的简单邮件传输协议（Simple Mail Transfer Protocol，SMTP），所使用的传输方法就会剥去一些特定的字符。<sup class="calibre4"><small class="calibre5"><span class="calibre6">1</span></small></sup> 为了避开这些问题，URL 只能使用一些相对较小的、通用的安全字母表中的字符。</p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">1 这是由报文的 7 位二进制码编码造成的。如果源端是以 8 位或更多位编码的，就会有部分信息被剥离。</span></small></sup></p><p class="calibre_">除了希望 URL 可以被所有因特网协议进行传送之外，设计者们还希望URL也<span class="bold">可供人类阅读</span>。因此，即使不可见、不可打印的字符能够穿过邮件程序，从而成为可移植的，也不能在 URL 中使用。<sup class="calibre4"><small class="calibre5"><span class="calibre6">2</span></small></sup></p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">2 不可打印字符中包括空格符（注意，RFC 2396 建议应用程序忽略空格符）。</span></small></sup></p><p class="calibre_">URL 还得是<span class="bold">完整的</span>，这就使问题变得更加复杂了。URL 的设计者们认识到有时人们可能会希望 URL 中包含除通用的安全字母表之外的二进制数据或字符。因此，需要有一种转义机制，能够将不安全的字符编码为安全字符，再进行传输。</p><p class="calibre_">本节总结了 URL 的通用字母表和编码规则。</p><p class="calibre_"><span class="calibre3"><span class="bold">2.4.1　URL字符集</span></span></p><p class="calibre_">默认的计算机系统字符集通常都倾向于以英语为中心。从历史上来看，很多计算机应用程序使用的都是 US-ASCII 字符集。US-ASCII 使用 7 位二进制码来表示英文打字机提供的大多数按键和少数用于文本格式和硬件通知的不可打印控制字符。</p><p class="calibre_">由于 US-ASCII 的历史悠久，所以其可移植性很好。但是，虽然美国用户使用起来很便捷，它却并不支持在各种欧洲语言或全世界数十亿人使用的数百种非罗马语言中很常见的变体字符。</p><p class="calibre_">而且，有些 URL 中还会包含任意的二进制数据。认识到对完整性的需求之后，URL 的设计者就将转义序列集成了进去。通过转义序列，就可以用 US-ASCII 字符集的有限子集对任意字符值或数据进行编码了，这样就实现了可移植性和完整性。</p><p class="calibre_"><span class="calibre3"><span class="bold">2.4.2　编码机制</span></span></p><p class="calibre_">为了避开安全字符集表示法带来的限制，人们设计了一种编码机制，用来在 URL 中表示各种不安全的字符。这种编码机制就是通过一种“转义”表示法来表示不安全字符的，这种转义表示法包含一个百分号（%），后面跟着两个表示字符 ASCII 码的 十六进制数。</p><p class="calibre_">表 2-2 中列出了几个例子。</p><p class="calibre_"><span class="bold">表2-2　一些编码字符示例</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> 字　　符 </span></span>
+</th><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> ASCII码 </span></span>
+</th><th valign="top" class="calibre_44"><span class="calibre7"><span class="bold"> 示例URL </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> ~ </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 126(0x7E) </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.joes-hardware.com/%7Ejoe"><span class="calibre7">http://www.joes-hardware.com/%7Ejoe </span></a><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 空格 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 32(0x20) </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.joes-hardware.com/more%20tools.html"><span class="calibre7">http://www.joes-hardware.com/more%20tools.html </span></a>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> % </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 37(0x25) </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.joes-hardware.com/100%25satisfaction.html"><span class="calibre7">http://www.joes-hardware.com/100%25satisfaction.html </span></a><span class="calibre_18">
+</span></td></tr></table><p class="calibre_"><span class="calibre3"><span class="bold">2.4.3　字符限制</span></span></p><p class="calibre_">在 URL 中，有几个字符被保留起来，有着特殊的含义。有些字符不在定义的US-ASCII 可打印字符集中。还有些字符会与某些因特网网关和协议产生混淆，因此不赞成使用。</p><p class="calibre_">表 2-3 列出了一些字符，在将其用于保留用途之外的场合时，要在 URL 中对其进行编码。</p><p class="calibre_"><span class="bold">表2-3　保留及受限的字符</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_36"><span class="calibre7"><span class="bold"> 字　　符 </span></span>
+</th><th valign="top" class="calibre_45"><span class="calibre7"><span class="bold"> 保留/受限 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> % </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 保留作为编码字符的转义标志 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> / </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 保留作为路径组件中分隔路径段的定界符 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> . </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 保留在路径组件中使用 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> .. </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 保留在路径组件中使用 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> # </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 保留作为分段定界符使用 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> ? </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 保留作为查询字符串定界符使用 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> ; </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 保留作为参数定界符使用 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> : </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 保留作为方案、用户/口令，以及主机/端口组件的定界符使用 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> $, + </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 保留 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> @ &amp; = </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 在某些方案的上下文中有特殊的含义，保留 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> { } | \ ^ ~ [ ] ' </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 由于各种传输Agent代理，比如各种网关的不安全处理，使用受限 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> &lt; &gt; " </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 不安全；这些字符在URL范围之外通常是有意义的，比如在文档中对URL自身进行定界（比如</span><a href="http://www.joes-hardware.com"><span class="calibre7">http://www.joes-hardware.com </span></a><span class="calibre7">），所以应该对其进行编码</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 0x00-0x1F, 0x7F </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 受限，这些十六进制范围内的字符都在US-ASCII字符集的不可打印区间内 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> &gt;0x7F </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 受限，十六进制值在此范围内的字符都不在US-ASCII字符集的7比特范围内 </span>
+</td></tr></table><p class="calibre_"><span class="calibre3"><span class="bold">2.4.4　另外一点说明</span></span></p><p class="calibre_">你可能会感到奇怪，为什么使用一些不安全字符的时候并没有发生什么不好的事情。比如，你可以访问 <a href="http://www.joes-hardware.com/~joe">http://www.joes-hardware.com/~joe</a> 上的 Joe 主页，而无需对“~”字符进行编码。对某些传输协议来说，这并不是什么问题，但对应用程序开发人员来说，对非安全字符进行编码仍然是明智的。</p><p class="calibre_">应用程序要按照一定规范工作。客户端应用程序在向其他应用程序发送任意 URL 之前，最好把所有不安全或受限字符都进行转换 <sup class="calibre4"><small class="calibre5"><span class="calibre6">3</span></small></sup>。只要对所有不安全字符都进行了编码，这个 URL 就是可在各应用程序之间共享的<span class="bold">规范形式</span>；也就无需操心其他应用程序会被字符的任何特殊含义所迷惑了。</p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">3 这里我们特指的是客户端应用程序，而不是其他的 HTTP 中间点，比如代理。6.5.5 节探讨了代理和其他中间 HTTP 应用程序试图代表客户端修改（比如编码）URL 时可能产生的一些问题。</span></small></sup></p><p class="calibre_">最适合判断是否需要对字符进行编码的程序就是从用户处获取 URL 的源端应用程序。URL 的每个组件都会有自己的安全 / 不安全字符，哪些字符是安全 / 不安全的与方案有关，因此只有从用户那里接收 URL 的应用程序才能够判断需要对哪些字符进行编码。</p><p class="calibre_">当然，另一种极端的做法就是应用程序对所有字符都进行编码。尽管并不建议这么做，但也没有什么强硬且严格的规则规定不能对那些安全字符进行编码；但在实际应用中，有些应用程序可能会假定不对安全字符进行编码，这么做的话可能会产生一些奇怪的破坏性行为。</p><p class="calibre_">有时，有些人会恶意地对额外的字符进行编码，以绕过那些对 URL 进行模式匹配的应用程序——比如，Web 过滤程序。对安全的 URL 组件进行编码会使模式匹配程序无法识别出它们所要搜寻的模式。总之，解释 URL 的应用程序必须在处理 URL 之前对其进行解码。</p><p class="calibre_">有些 URL 组件要便于识别，并且必须由字母开头，比如 URL 的方案。更多关于不同 URL 组件中保留字符和不安全字符的使用指南请回顾 2.2 节 <sup class="calibre4"><small class="calibre5"><span class="calibre6">4</span></small></sup>。</p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">4 表 2-3 列出了各种 URL 组件的保留字符。总之，只应该对这些在传输过程中不安全的字符进行编码。</span></small></sup></p><div class="mbp_pagebreak" id="calibre_pb_26"></div>
+</body></html>

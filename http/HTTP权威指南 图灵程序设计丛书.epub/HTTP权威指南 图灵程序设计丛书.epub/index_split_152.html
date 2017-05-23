@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos1028990" class="calibre_"><span class="calibre3"><span class="bold">15.8　验证码和新鲜度</span></span></p><p class="calibre_">现在再回顾前面的图 15-8。客户端起初没有该资源的副本，因此它发送请求给服务器要求得到一份。服务器用该资源的版本 1 给以响应。客户端现在可以缓存这份副本，但是要缓存多长时间呢？</p><p class="calibre_">当文档在客户端“过期”之后（也就是说，客户端不再认为该副本有效），客户端必须从服务器请求一份新的副本。不过，如果该文档在服务器上并未发生改变，客户端也就不需要再接收一次了——继续使用缓存的副本即可。</p><p class="calibre_">这种特殊的请求，称为<span class="bold">有条件的请求</span>（conditional request），要求客户端使用<span class="bold">验证码</span>（validator）来告知服务器它当前拥有的版本号，并仅当它的当前副本不再有效时才要求发送新的副本。让我们进一步详细研究这 3 个关键概念——新鲜度、验证码以及有条件的请求。</p><p class="calibre_"><span class="calibre3"><span class="bold">15.8.1　新鲜度</span></span></p><p class="calibre_">服务器应当告知客户端能够将内容缓存多长时间，在这个时间之内就是新鲜的。服务器可以用这两个首部之一来提供这种信息： <tt class="calibre8">Expires</tt> （ 过期）和 <tt class="calibre8">Cache-Control</tt> （缓存控制）。</p><p class="calibre_"><tt class="calibre8">Expires</tt> 首部规定文档“过期”的具体时间——此后就不应当认为它还是最新的。<tt class="calibre8">Expires</tt> 首部的语法如下：</p><blockquote class="calibre_21"><span class="calibre7"><tt class="calibre8">Expires: Sun Mar 18 23:59:59 GMT 2001<br class="calibre2"/></tt></span></blockquote><p class="calibre_22">客户端和服务器为了能正确使用 <tt class="calibre8">Expires</tt> 首部，它们的时钟必须同步。这并不总是很容易的，因为它们可能都没有运行像 Network Time Protocol（网络时间协议，NTP）这样的时钟同步协议。用相对时间来定义过期的机制会更有用。<tt class="calibre8">Cache-Control</tt> 首部可以用秒数来规定文档最长使用期——从文档离开服务器之后算起的总计时间。使用期不与时钟同步，因此可以给出更精确的结果。</p><p class="calibre_">实际上，<tt class="calibre8">Cache-Control</tt> 首部功能很强大。服务器和客户端都可以用它来说明新鲜度，并且除了使用期或过期时间之外，还有很多指令可用。表 15-3 列出了 <tt class="calibre8">Cache-Control</tt> 首部的一些指令。</p><p class="calibre_"><span class="bold">表15-3　</span><tt class="calibre8"><span class="bold">Cache-Control</span></tt><span class="bold">首部的指令</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_66"><span class="calibre7"><span class="bold"> 指　　令 </span></span>
+</th><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> 报文类型 </span></span>
+</th><th valign="top" class="calibre_61"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">no-cache </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 在重新向服务器验证之前，不要返回文档的缓存副本 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">no-store </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 请求 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 不要返回文档的缓存副本。不要保存服务器的响应 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">max-age </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 缓存中的文档不能超过指定的使用期 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">max-stale </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 请求 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 文档允许过期（根据服务器提供的过期信息计算），但不能超过指令中指定的过期值 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">min-fresh </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 文档的使用期不能小于这个指定的时间与它的当前存活时间之和。换句话说，响应必须至少在指定的这段时间之内保持新鲜 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">no-transform </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 请求 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 文档在发送之前不允许被转换 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">only-if-cached </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 只有当文档在缓存中才发送，不要联系原始服务器 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">public </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 响应 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 响应可以被任何服务器缓存 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">private </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 响应 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 响应可以被缓存，但只能被单个客户端访问 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">no-cache </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 响应 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 如果该指令伴随一个首部列表的话，那么内容可以被缓存并提供给客户端，但必须先删除所列出的首部。如果没有指定首部，缓存中的副本在没有重新向服务器验证之前不能提供给客户端 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">no-store </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 响应 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 响应不允许被缓存 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">no-transform </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 响应 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 响应在提供给客户端之前不能做任何形式的修改 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">must-revalidate </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 响应 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 响应在提供给客户端之前必须重新向服务器验证 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">proxy-revalidate </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 响应 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 共享的缓存在提供给客户端之前必须重新向原始服务器验证。私有的缓存可以忽略这条指令 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">max-age </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 响应 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 指定文档可以被缓存的时间以及新鲜度的最长时间 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">s-max-age </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 响应 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 指定文档作为共享缓存时的最长使用时间（如果有 </span><span class="calibre11"><tt class="calibre8">max-age </tt></span><span class="calibre7"> 指令的话，以本指令为准）。私有的缓存可以忽略本指令</span>
+</td></tr></table><p class="calibre_">缓存和新鲜度在第 7 章中曾有详细讨论。</p><p class="calibre_"><span class="calibre3"><span class="bold">15.8.2　有条件的请求与验证码</span></span></p><p class="calibre_">当请求缓存服务器中的副本时，如果它不再新鲜，缓存服务器就需要保证它有一个新鲜的副本。缓存服务器可以向原始服务器获取当前的副本。但在很多情况下，原始服务器上的文档仍然与缓存中已过期的副本相同。我们在图 15-8b 中看到过这种情况；缓存的副本或许已经过期了，但原始服务器上的内容与缓存的内容仍然相同。如果服务器上的文档和已过期的缓存副本相同，而缓存服务器还是要从原始服务器上取文档的话，那缓存服务器就是在浪费网络带宽，给缓存服务器和原始服务器增加不必要的负载，使所有事情都变慢了。</p><p class="calibre_">为了避免这种情况，HTTP 为客户端提供了一种方法，仅当资源改变时才请求副本，这种特殊请求称为有条件的请求。有条件的请求是标准的 HTTP 请求报文，但仅当某个特定条件为真时才执行。例如，某个缓存服务器可能发送下面的有条件 GET 报文给服务器，仅当文件 /announce.html 从 2002 年 6 月 29 日（这是缓存的文档最后被作者修改的时间）之后发生改变的情况下才发送它：</p><blockquote class="calibre_21"><span class="calibre7"><tt class="calibre8">GET /announce.html HTTP/1.0<br class="calibre2"/>If-Modified-Since: Sat, 29 Jun 2002, 14:30:00 GMT<br class="calibre2"/></tt></span></blockquote><p class="calibre_22">有条件的请求是通过以“If-”开头的有条件的首部来实现的。在上面的例子中，有条件的首部是 <tt class="calibre8">If-Modified-Since</tt>（如果 - 从……之后 ??修改过）。有条件的首部使得方法仅在条件为真时才执行。如果条件不满足，服务器就发回一个 HTTP 错误码。</p><p class="calibre_">每个有条件的请求都通过特定的<span class="bold">验证码</span>来发挥作用。验证码是文档实例的一个特殊属性，用它来测试条件是否为真。从概念上说，你可以把验证码看作文件的序列号、版本号，或者最后发生改变的日期时间。在图 15-8b 中，那个智能的客户端发送给服务器的有条件的验证请求是在说：“我有版本 1，如果这个资源不再是版本 1 就把它发给我。”我们在第 7 章已经讨论过有条件的缓存再验证了，而本章会更仔细地研究实体验证码的细节。</p><p class="calibre_">有条件的首部 <tt class="calibre8">If-Modified-Since</tt> 测试的是文档实例最后被修改的日期时间，因此我们说最后被修改的日期时间就是验证码。有条件的首部 <tt class="calibre8">If-None-Match</tt> 测试的是文档的 <tt class="calibre8">ETag</tt> 值，它是与实体相关联的一个特殊的关键字，或者说是版本识别标记。<tt class="calibre8">Last-Modified</tt> 和 <tt class="calibre8">ETag</tt> 是 HTTP 使用的两种主要验证码。表 15-4 中列出了用于有条件请求的 4 种 HTTP 首部。每个有条件的首部之后就是这种首部所用的验证码类型。</p><p class="calibre_"><span class="bold">表15-4　有条件的请求类型</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_66"><span class="calibre7"><span class="bold"> 请求类型 </span></span>
+</th><th valign="top" class="calibre_36"><span class="calibre7"><span class="bold"> 验　证　码 </span></span>
+</th><th valign="top" class="calibre_15"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">If-Modified-Since </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">Last-Modified </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 如果在前一条响应的 </span><span class="calibre11"><tt class="calibre8">Last-Modified </tt></span><span class="calibre7"> 首部中说明的时间之后，资源的版本发生变化，就发送其副本</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">If-Unmodified-Since </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">Last-Modified </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 仅在前一条响应的 </span><span class="calibre11"><tt class="calibre8">Last-Modified </tt></span><span class="calibre7"> 首部中说明的时间之后，资源的版本没有变化，才发送其副本</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">If-Match </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">ETag </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 如果实体的标记与前一次响应首部中的 </span><span class="calibre11"><tt class="calibre8">ETag </tt></span><span class="calibre7"> 相同，就发送该资源的副本</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">If-None-Match </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">ETag </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 如果实体的标记与前一次响应首部中的 </span><span class="calibre11"><tt class="calibre8">ETag </tt></span><span class="calibre7"> 不同，就发送该资源的副本</span>
+</td></tr></table><p class="calibre_">HTTP 把验证码分为两类：<span class="bold">弱验证码</span>（weak validators）和<span class="bold">强验证码</span>（strong validators）。弱验证码不一定能唯一标识资源的一个实例，而强验证码必须如此。弱验证码的一个例子是对象的大小字节数。有可能资源的内容改变了，而大小还保持不变，因此假想的字节计数验证码与改变是弱相关的。而资源内容的加密校验和（比如 MD5）就是强验证码，当文档改变时它总是会改变。</p><p class="calibre_">最后修改时间被当作弱验证码，因为尽管它说明了资源最后被修改的时间，但它的描述精度最大就是 1 秒。因为资源在 1 秒内可以改变很多次，而且服务器每秒可以处理数千个请求，最后修改日期时间并不总能反应变化情况。<tt class="calibre8">ETag</tt> 首部被当作强验证码，因为每当资源内容改变时，服务器都可以在 <tt class="calibre8">ETag</tt> 首部放置不同的值。版本号和摘要校验和也是很好的 <tt class="calibre8">ETag</tt> 首部候选，但它们不能带有任意的文本。<tt class="calibre8">ETag</tt> 首部很灵活，它可以带上任意的文本值（以标记的形式），这样就可以用来设计出各种各样的客户端和服务器验证策略。</p><p class="calibre_">有时候，客户端和服务器可能需要采用不那么精确的实体标记验证方法。例如，某服务器可能想对一个很大、被广泛缓存的文档进行一些美化修饰，但不想在缓存服务器再验证时产生很大的传输流量。在这种情况下，该服务器可以在标记前面加上“W/”前缀来广播一个“弱”实体标记。对于弱实体标记来说，只有当关联的实体在语义上发生了重大改变时，标记才会变化。而强实体标记则不管关联的实体发生了什么性质的变化，标记都一定会改变。</p><p class="calibre_">下面的例子展示了客户端如何用弱实体标记向服务器请求再验证。服务器仅当文档的内容从版本 4.0 算起发生了显著变化时，才返回主体：</p><blockquote class="calibre_21"><span class="calibre7"><tt class="calibre8">GET /announce.html HTTP/1.1<br class="calibre2"/>If-None-Match: W/"v4.0"<br class="calibre2"/></tt></span></blockquote><p class="calibre_22">概括一下，当客户端多次访问同一个资源时，首先需要判断它当前的副本是不是仍然新鲜。如果不再新鲜，它们就必须从服务器获取最新的版本。为了避免在资源没有改变的情况下收到一份相同的副本，客户端可以向服务器发送有条件的请求，说明能唯一标识客户端当前副本的验证码。只在资源和客户端的副本不同的情况下服务器才会发送其副本。更多关于缓存再验证的细节，请回顾 7.7 节。 </p><div class="mbp_pagebreak" id="calibre_pb_152"></div>
+</body></html>

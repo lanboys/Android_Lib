@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p class="calibre_"><span class="calibre3"><span class="bold">F.2　摘要 </span></span><span class="calibre3"><tt class="calibre8"><span class="bold">Authorization</span></tt></span><span class="calibre3"><span class="bold"> 指令</span></span></p><p class="calibre_">表 F-2 根据 RFC 2617 的描述，对每条摘要 <tt class="calibre8">Authorization</tt> 指令都进行了说明。最新的细节请参见官方规范。</p><p class="calibre_"><span class="bold">表F-2　（来自RFC 2617的）摘要 </span><tt class="calibre8"><span class="bold">Authorization</span></tt><span class="bold"> 首部指令</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> 指　　令 </span></span>
+</th><th valign="top" class="calibre_46"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> username </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 指定域中的用户名 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> realm </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 在 </span><span class="calibre11"><tt class="calibre8">WWW-Authenticate </tt></span><span class="calibre7"> 首部中传送给客户端的域</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> nonce </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 在 </span><span class="calibre11"><tt class="calibre8">WWW-Authenticate </tt></span><span class="calibre7"> 首部中传送给客户端的那个与服务器相同的 nonce</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> uri </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 来自请求行请求 URI 中的 URI。由于代理可以在传输中修改请求行，所以会出现重复。进行正确的摘要验证计算可能需要原始 URI </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> response </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 这个就是实际的摘要——摘要认证的重点！响应是一个由 32 个十六进制数字组成的字符串，由沟通好的摘要算法生成，用来证明用户知道这个密码 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> algorithm </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 一个字符串，说明了用来生成摘要和校验和的一对儿算法。如果未提供，就将其假定为 MD5 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> opaque </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 服务器在 </span><span class="calibre11"><tt class="calibre8">WWW-Authenticate</tt></span><span class="calibre7"> 首部指定的数据串，应该由客户端不经修改地在后继请求的 </span><span class="calibre11"><tt class="calibre8">WWW-Authenticate </tt></span><span class="calibre7"> 首部中返回，这个请求应使用同一保护空间内的 URI</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> cnonce </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 如果发送了 qop 指令，就一定要使用这条指令，如果服务器没有在 </span><span class="calibre11"><tt class="calibre8">WWW-Authenticate</tt></span><span class="calibre7"> 首部字段中发送 qop 指令，就一定不能使用这条指令。</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">cnonce 值是客户端提供的不透明引用字符串值，客户端和服务器都用它来避免选择明文攻击，以提供双向认证以及一些报文一致性检查。参见本附录稍后介绍的响应摘要和请求摘要计算</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> qop </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 说明客户端对报文应用的“安全保障”是什么。如果提供了这条指令，它的值就必须是服务器在 </span><span class="calibre11"><tt class="calibre8">WWW-Authenticate</tt></span><span class="calibre7"> 首部中说明的、它支持的可选值之一。这些值会影响请求摘要的计算方式。</span><br class="calibre2"/><span class="calibre7">它只是个单独的标记，而不是 </span><span class="calibre11"><tt class="calibre8">WWW-Authenticate</tt></span><span class="calibre7"> 中那样的可选值引用列表。这条指令是可选的，以保持对 RFC 2069 最小实现的后向兼容，但如果服务器说明它是通过在 </span><span class="calibre11"><tt class="calibre8">WWW-Authenticate </tt></span><span class="calibre7"> 首部字段中提供 qop 指令来支持 qop 的，就应该使用这条指令</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> nc </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 如果发送了 qop 指令，就一定要指定这条指令，如果服务器没有在 </span><span class="calibre11"><tt class="calibre8">WWW-Authenticate</tt></span><span class="calibre7"> 首部字段中发送 qop 指令，就一定不能使用这条指令。其值是个十六进制值，表示客户端已经发送的包含 nounce 值的请求次数（包括当前请求在内）。比如，作为对指定 nonce 值的响应发送的第一条请求中，客户端会发送</span><span class="calibre11"><tt class="calibre8">nc="00000001"</tt></span><span class="calibre7">。</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">这条指令的目的是允许服务器通过维护自己保存的此计数值副本来发现请求重放——如果看到了两次相同的 nc 值，就说明请求是重放的</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> &lt;extension&gt; </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 未来可以通过这条指令进行扩展。所有不认识的指令都要忽略掉 </span><span class="calibre_18">
+</span></td></tr></table><div class="mbp_pagebreak" id="calibre_pb_222"></div>
+</body></html>

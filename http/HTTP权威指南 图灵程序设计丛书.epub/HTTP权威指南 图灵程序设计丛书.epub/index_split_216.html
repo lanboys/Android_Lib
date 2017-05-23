@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p class="calibre_"><span class="calibre3"><span class="bold">E.2　8位到6位</span></span></p><p class="calibre_">Base-64 编码将一个 8 位字节序列拆散为 6 位的片段，并为每个 6 位的片段分配一个字符，这个字符是 Base-64 字母表中的 64 个字符之一。这 64 个输出字符都是很常见的，可以安全地放在 HTTP 首部字段中。这 64 个字符中包含大小写字母、数字、+ 和 /，还使用了特殊字符 =。表 E-1 显示了 Base-64 的字母表。</p><p class="calibre_">注意，由于 Base-64 编码用了 8 位字符来表示信息中的 6 个位，所以 Base-64 编码字符串大约比原始值扩大了 33%。</p><p class="calibre_"><span class="bold">表E-1　Base-64字母表</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 0 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> A </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 8 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> I </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 16 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Q </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 24 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Y </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 32 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> g </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 40 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> o </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 48 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> w </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 56 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 4 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 1 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> B </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 9 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> J </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 17 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> R </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 25 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Z </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 33 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> h </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 41 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> p </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 49 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> x </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 57 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 5 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 2 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> C </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 10 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> K </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 18 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> S </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 26 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> a </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 34 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> i </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 42 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> q </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 50 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> y </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 58 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 6 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 3 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> D </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 11 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> L </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 19 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> T </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 27 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> b </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 35 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> j </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 43 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> r </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 51 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> z </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 59 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 7 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 4 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> E </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 12 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> M </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 20 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> U </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 28 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> c </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 36 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> k </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 44 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> s </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 52 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 0 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 60 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 8 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 5 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> F </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 13 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> N </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 21 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> V </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 29 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> d </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 37 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> l </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 45 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> t </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 53 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 1 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 61 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 9 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 6 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> G </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 14 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> O </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 22 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> W </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 30 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> e </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 38 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> m </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 46 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> u </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 54 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 2 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 62 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> + </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 7 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> H </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 15 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> P </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 23 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> X </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 31 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> f </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 39 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> n </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 47 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> v </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 55 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 3 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 63 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> / </span><span class="calibre_18">
+</span></td></tr></table><p class="calibre_">图 E-1 是一个简单的 Base-64 编码实例。在这里，三个字符组成的输入值“Ow!”是 Base-64 编码的，得到的是 4 个字符的 Base-64 编码值“T3ch”。它是按以下方式工作的。</p><p class="calibre_8"><img src="images/00059.jpg" class="calibre_201"/></p><p class="calibre_10"><span class="calibre7">图 E-1　Base-64 编码实例</span></p><div class="calibre_5"> </div><ol class="calibre_40"><li value="1" class="calibre_7"><p class="calibre_">字符串“Ow!”被拆分成 3 个 8 位的字节（0x4F、0x77、0x21）。</p></li><li value="2" class="calibre_7"><p class="calibre_">这 3 个字节构成了一个 24 位的二进制值 010011110111011100100001。</p></li><li value="3" class="calibre_7"><p class="calibre_">这些位被划分为一些 6 位的序列 010011、110111、01110、100001。</p></li><li value="4" class="calibre_7"><p class="calibre_">每个 6 位值都表示了从 0 ～ 63 之间的一个数字，对应 Base-64 字母表中 64 个字符之一。得到的 Base-64 编码字符串是个 4 字符的字符串“T3ch”，然后就可以通过线路将这个字符串作为“安全的”8 位字符传送出去，因为只用了一些移植性最好的字符（字母、数字等）。</p></li></ol><div class="mbp_pagebreak" id="calibre_pb_216"></div>
+</body></html>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos908143" class="calibre_"><span class="calibre3"><span class="bold">14.3　对称密钥加密技术</span></span></p><p class="calibre_">我们来更详细地看看密钥和密码是怎样配合工作的。很多数字加密算法都被称为<span class="bold">对称密钥</span>（symmetric-key）加密技术，这是因为它们在编码时使用的密钥值和解码时一样（e=d）。我们就将其统称为密钥 k。</p><p class="calibre_">在对称密钥加密技术中，发送端和接收端要共享相同的密钥 k 才能进行通信。发送端用共享的密钥来加密报文，并将得到的密文发送给接收端。接收端收到密文，并对其应用解密函数和相同的共享密钥，恢复出原始的明文（参见图 14-7）。</p><p class="calibre_8"><img src="images/00116.jpg" class="calibre_30"/></p><p class="calibre_10"><span class="calibre7">图 14-7　对称密钥加密算法为编 / 解码使用相同的密钥</span></p><p class="calibre_">流行的对称密钥加密算法包括：DES、Triple-DES、RC2 和 RC4。</p><p class="calibre_"><span class="calibre3"><span class="bold">14.3.1　密钥长度与枚举攻击</span></span></p><p class="calibre_">保持密钥的机密状态是很重要的。在很多情况下，编 / 解码算法都是众所周知的，因此密钥就是唯一保密的东西了。</p><p class="calibre_">好的加密算法会迫使攻击者试遍每一个可能的密钥，才能破解代码。用暴力去尝试所有的密钥值称为<span class="bold">枚举攻击</span>（enumeration attack）。如果只有几种可能的密钥值，居心不良的人通过暴力遍历所有值，就能最终破解代码了。但如果有大量可能的密钥值，他可能就要花费数天、数年，甚至无限长的时间来遍历所有的密钥，去查找能够破解密码的那一个。</p><p class="calibre_">可用密钥值的数量取决于密钥中的位数，以及可能的密钥中有多少是有效的。就对称密钥加密技术来说，通常所有的密钥值都是有效的。<sup class="calibre4"><small class="calibre5"><span class="calibre6">1</span></small></sup> 8 位的密钥只有 256 个可能的密钥值，40 位的密钥可以有 2<sup class="calibre4"><small class="calibre5"><span class="calibre6">40</span></small></sup> 个可能的密钥值（大约是一万亿个密钥），128 位的密钥可以产生大约 340 000 000 000 000 000 000 000 000 000 000 000 000 个可能的密钥值。</p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">1 有些加密技术中只有部分密钥值是有效的。比如，在最知名的非对称加密算法 RSA 中，有效密钥 必须以某种方式与质数相关。可能的密钥值中只有少量密钥具备此特性。</span></small></sup></p><p class="calibre_">在传统的对称密钥加密技术中，对小型的、不太重要的事务来说，40 位的密钥就足够安全了。但现在的高速工作站就可以将其破解，这些工作站每秒可以进行数十亿次计算。</p><p class="calibre_">相比之下，对于对称密钥加密技术，128 位的密钥被认为是非常强大的。实际上，长密钥对密码安全有着非常重要的影响，美国政府甚至对使用长密钥的加密软件实施了出口控制，以防止潜在的敌对组织创建出美国国家安全局（National Security Agency，NSA）自己都无法破解的秘密代码。</p><p class="calibre_">Bruce Schneier 编写的 <span class="italic">Applied Cryptography</span>（John Wiley &amp; Sons 出版社）是一本很棒的书，书中有一张表，表中对使用 1995 年的技术和耗费，通过猜测所有的密钥来破解一个 DES 密码所需的时间进行了描述。<sup class="calibre4"><small class="calibre5"><span class="calibre6">2</span></small></sup> 表 14-1 摘录了这张表。</p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">2 1995 年之后，计算速度得到了飞速的提高，费用也降低了。你越晚读到这本书，计算的速度就会越快！ 但即使所需的时间会成 5 倍、10 倍或更多倍的减少，这张表仍然是有参考价值的。</span></small></sup></p><p class="calibre_"><span class="bold">表14-1　较长的密钥要花费更多的精力去破解（来自</span><tt class="calibre8"><span class="italic"><span class="bold">Applied Cryptography</span></span></tt><span class="bold">一书，1995年的数据）</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_66"><span class="calibre7"><span class="bold"> 攻击耗费 </span></span>
+</th><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> 40位密钥 </span></span>
+</th><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> 56位密钥 </span></span>
+</th><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> 64位密钥 </span></span>
+</th><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> 80位密钥 </span></span>
+</th><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> 128位密钥 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 100 000 美元 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 2 秒 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 35 小时 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 1 年 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 70 000 年 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 10<sup class="calibre14"><small class="calibre5"><span class="calibre13">19 </span></small></sup></span><span class="calibre7"> 年</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 1 000 000 美元 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 200 毫秒 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 3.5 小时 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 37 天 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 7 000 年 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 10<sup class="calibre14"><small class="calibre5"><span class="calibre13">18 </span></small></sup></span><span class="calibre7"> 年</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 10 000 000 美元 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 20 毫秒 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 21 分钟 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 4 天 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 700 年 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 10<sup class="calibre14"><small class="calibre5"><span class="calibre13">17 </span></small></sup></span><span class="calibre7"> 年</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 100 000 000 美元 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 2 毫秒 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 2 分钟 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 9 小时 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 70 年 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 10<sup class="calibre14"><small class="calibre5"><span class="calibre13">16 </span></small></sup></span><span class="calibre7"> 年</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 1 000 000 000 美元 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 200 微秒 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 13 秒 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 1 小时 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 7 年 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 10<sup class="calibre14"><small class="calibre5"><span class="calibre13">15 </span></small></sup></span><span class="calibre7"> 年</span><span class="calibre_18">
+</span></td></tr></table><p class="calibre_">根据 1995 年微处理器的速度，愿意花费 100 000 美元的攻击者可以在大约 2 秒内破解一个 40 位的 DES 代码。2002 年的计算机就已经比 1995 年的快 20 倍了。除非用户经常修改密钥，否则对于别有用心的攻击者来说，40 位的密钥是不安全的。</p><p class="calibre_">DES 的 56 位标准密钥长度就更安全一些。从 1995 年的经济水平来说，花费 100 万美元进行的攻击还是要几个小时才能破解密码。但可使用超级计算机的用户则只需数秒钟即可通过暴力方法破解密码。与之相对的是，通常大家都认为长度与 Triple-DES 密钥相当的 128 位 DES 密钥实际上是任何人以任何代价都无法通过暴力攻击破解的。<sup class="calibre4"><small class="calibre5"><span class="calibre6">3</span></small></sup></p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">3 但是，长的密钥并不意味着可以高枕无忧了！加密算法或实现中可能会有不为人注意的缺陷，为攻击者提供了可攻击的弱点。攻击者也可能会有一些与密钥产生方式有关的信息，这样他就会知道使用某些密钥的可能性比另一些要大，从而有助于进行有目的的暴力攻击。或者用户可能将保密的密钥落在了什么地方，被攻击者偷走了。</span></small></sup></p><p class="calibre_"><span class="calibre3"><span class="bold">14.3.2　建立共享密钥</span></span></p><p class="calibre_">对称密钥加密技术的缺点之一就是发送者和接收者在互相对话之前，一定要有一个共享的保密密钥。</p><p class="calibre_">如果想要与 Joe 的五金商店进行保密的对话，可能是在看了公共电视台的家装节目之后，想要订购一些木工工具，那么在安全地订购任何东西之前，要先在你和 <a href="http://www.joes-hardware.com">www.joes-hardware.com</a> 之间建立一个私有的保密密钥。你需要一种产生保密密钥并将其记住的方式。你和 Joe 的五金商店，以及因特网上所有其他人，都要产生并记住数千个密钥。</p><p class="calibre_">比如 Alice（A）、Bob（B）和 Chris（C）都想与 Joe 的五金商店（J）对话。A、B 和 C 都要建立自己与 J 之间的保密密钥。A 可能需要密钥 K<sup class="calibre4"><small class="calibre5"><span class="calibre6">AJ</span></small></sup>，B 可能需要密钥 K<sup class="calibre4"><small class="calibre5"><span class="calibre6">BJ</span></small></sup>，C 可能需要密钥 K<sup class="calibre4"><small class="calibre5"><span class="calibre6">CJ</span></small></sup>。每对通信实体都需要自己的私有密钥。如果有 <span class="italic">N</span> 个节点， 每个节点都要和其他所有 <span class="italic">N</span>-1 个节点进行安全对话，总共大概会有 <span class="italic">N<sup class="calibre4"><small class="calibre5"><span class="calibre6">2</span></small></sup></span> 个保密密钥： 这将是一个管理噩梦。</p><div class="mbp_pagebreak" id="calibre_pb_135"></div>
+</body></html>

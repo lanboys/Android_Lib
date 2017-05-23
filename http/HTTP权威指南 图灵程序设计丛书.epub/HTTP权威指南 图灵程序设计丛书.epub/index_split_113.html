@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos746188" class="calibre_"><span class="calibre3"><span class="bold">11.1　个性化接触</span></span></p><p class="calibre_">HTTP 最初是一个匿名、无状态的请求 / 响应协议。服务器处理来自客户端的请求，然后向客户端回送一条响应。Web 服务器几乎没有什么信息可以用来判定是哪个用户发送的请求，也无法记录来访用户的请求序列。</p><p class="calibre_">现代的 Web 站点希望能够提供个性化的接触。它们希望对连接另一端的用户有更多的了解，并且能在用户浏览页面时对其进行跟踪。<a href="http://Amazon.com">Amazon.com</a> 这样流行的在线商店网站可以通过以下几种方式实现站点的个性化。</p><div class="calibre_5"> </div><ul class="calibre_6"><li value="1" class="calibre_7"><p class="calibre_"><span class="bold">个性化的问候</span></p><p class="calibre_">专门为用户生成的欢迎词和页面内容，使购物体验更加个性化。</p></li><li value="2" class="calibre_7"><p class="calibre_"><span class="bold">有的放矢的推荐</span></p><p class="calibre_">通过了解客户的兴趣，商店可以推荐一些它们认为客户会感兴趣的商品。商店还可以在临近客户生日或其他一些重要日子的时候提供生日特定的商品。</p></li><li value="3" class="calibre_7"><p class="calibre_"><span class="bold">管理信息的存档</span></p><p class="calibre_">在线购物的用户不喜欢一次又一次地填写繁琐的地址和信用卡信息。有些站点会将这些管理细节存储在一个数据库中。只要他们识别出用户，就可以使用存档的管理信息，使得购物体验更加便捷。</p></li><li value="4" class="calibre_7"><p class="calibre_"><span class="bold">记录会话</span></p><p class="calibre_">HTTP 事务是无状态的。每条请求 / 响应都是独立进行的。很多 Web 站点希望能在用户与站点交互的过程中（比如，使用在线购物车的时候）构建增量状态。要实现这一功能，Web 站点就需要有一种方式来区分来自不同用户的 HTTP 事务。</p></li></ul><p class="calibre_">本章对 HTTP 识别用户的几种技巧进行了总结。HTTP 并不是天生就具有丰富的识别特性的。早期的 Web 站点设计者们（他们都是些注重实际的人）都有自己的用户识别技术。每种技术都有其优势和劣势。本章我们将讨论下列用户识别机制。</p><div class="calibre_5"> </div><ul class="calibre_6"><li value="1" class="calibre_7"><p class="calibre_">承载用户身份信息的 HTTP 首部。</p></li><li value="2" class="calibre_7"><p class="calibre_">客户端 IP 地址跟踪，通过用户的 IP 地址对其进行识别。</p></li><li value="3" class="calibre_7"><p class="calibre_">用户登录，用认证方式来识别用户。</p></li><li value="4" class="calibre_7"><p class="calibre_">胖 URL，一种在 URL 中嵌入识别信息的技术。</p></li><li value="5" class="calibre_7"><p class="calibre_">cookie，一种功能强大且高效的持久身份识别技术。 </p></li></ul><div class="mbp_pagebreak" id="calibre_pb_113"></div>
+</body></html>

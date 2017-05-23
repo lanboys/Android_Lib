@@ -1,0 +1,266 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos1458103" class="calibre_"><span class="calibre1"><span class="bold">附录 A　URI 方案</span></span></p><p class="calibre_">已定义的 URI 方案有很多，但常用的并不多。一般来说，有相关的 RFC 对其解释说明的 URI 方案更常用一些，但确实也有少数由主导软件公司（特别是 Netscape 和 Microsoft）开发，但未被正式发布的方案得到了广泛应用。</p><p class="calibre_">W3C 维护了一个 URI 方案列表，可以通过以下地址访问：</p><p class="calibre_"><a href="http://www.w3.org/Addressing/schemes.html">http://www.w3.org/Addressing/schemes.html</a></p><p class="calibre_">IANA 也维护了一个 URL 方案的列表，网址是：</p><p class="calibre_"><a href="http://www.iana.org/assignments/uri-schemes">http://www.iana.org/assignments/uri-schemes</a></p><p class="calibre_">表 A-1 介绍了部分已经提出的和正在使用的方案。注意，表中大约有 90 个方案，其中很多都没有得到广泛应用，而且有些已被废弃。</p><p class="calibre_"><span class="bold">表A-1　在W3C注册的URI方案</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> 方　　案 </span></span>
+</th><th valign="top" class="calibre_68"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th><th valign="top" class="calibre_163"><span class="calibre7"><span class="bold"> RFC </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> about </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 研究浏览器各方面特性的 Netscape 方案。比如说，使用 about 自身的效果就跟选择 Navigator 的 Help 菜单中的 About Communicator 一样，about:cache 显示的就是磁盘缓存的统计数据，about:plugins 显示的是与已配置的插件有关的信息。其他浏览器，比如微软的 Internet Explorer，也使用了这个方案 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> acap </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 应用程序配置访问协议 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 2244 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> afp </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 用于使用 AFP（Apple Filing Protocol，苹果文件协议）提供的文件共享服务，是作为已过期的 IETF draft-ietf-svrloc-afp-service-01.txt 的一部分定义的 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> afs </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 保留，以备 Andrew 文件系统将来使用 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> callto </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 初始化微软的 NetMeeting 会议的会话，比如：callto:ws3.joeshardware.com/joe@joes-hardware.com </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> chttp </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Real 网络公司定义的 CHTTP 缓存协议。RealPlayer 没有缓存 HTTP 传输的所有条目。作为一种替代方式，可以在文件的 URL 中使用 chttp:// 代替 http:// 来说明要缓存的文件。RealPlayer 在 SMIL 文件中读到 CHTTP URL 时，首先会查看磁盘的缓存中是否有该文件。如果没有此文件，就通过 HTTP 请求此文件，并将其存储在自己的缓存中 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> cid </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 在电子邮件中通过[MIME] 传送 Web 页面及其相关图片时，需要一个 URL 方案允许 HTML 引用报文中所含图片或其他数据 Content-ID URL，即cid，就用于这个目的 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 2392</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">2111</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> clsid </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 允许引用微软的 OLE/COM 类。用于向 Web 页面中插入活动对象 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> data </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 允许将一些小的常量数据条目作为“即时”数据包含在内。这个 URL 会将 text/plain 字符串 A brief note 编码为：data:A%20 brief%20note </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 2397 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> date </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持日期的方案建议，比如date:1999-03-04T20:42:08 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> dav </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 为了确保基于此规范的互操作的正确性，IANA 必须保留以 DAV: 和 opaquelocktoken: 开头的 URI 名字空间，供这个规范和它的修订版本以及相关的 WebDAV 规范使用 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 2518 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> dns </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 供 REBOL 软件使用。</span><br class="calibre2"/><span class="calibre7">参见 </span><a href="http://www.rebol.com/users/valurl.html"><span class="calibre7">http://www.rebol.com/users/valurl.html </span></a>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> eid </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 外部 ID 方案提供了一种机制，本地应用程序可以通过这种机制引用通过其他非URL 方案获取的数据。这个方案试图提供一种通用的转义机制，以便那些无法提出自己方案的专业应用程序访问信息。这个 URI 的使用方式存在争议。参见 </span><a href="http://www.ics.uci.edu/pub/ietf/uri/draft-finseth-url-00.txt"><span class="calibre7">http://www.ics.uci.edu/pub/ietf/uri/draft-finseth-url-00.txt </span></a><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> fax </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 方案 fax 描述了一条连接，此连接连至可处理电传的终端（传真机） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 2806 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> file </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 在特定主机上标识出可访问的文件。其中可以包含主机名，但这个方案的特殊性在于它没有为此类文件指定因特网协议或访问方式；这样，它在主机间网络协议中的效用就会受到限制 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 1738 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> finger </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> finger URL 的格式如下：</span><span class="calibre7"><span class="italic">finger</span></span><span class="calibre7">://</span><span class="calibre7"><span class="italic">host</span></span><span class="calibre7">[:</span><span class="calibre7"><span class="italic">port</span></span><span class="calibre7">][/&lt;</span><span class="calibre7"><span class="italic">request</span></span><span class="calibre7">&gt;]。</span><br class="calibre2"/><span class="calibre7">&lt;request&gt; 必须与RFC 1288 的请求格式一致。参见</span><a href="http://www.ics.uci.edu/pub/ietf/uri/draft-ietf-uri-url-finger-03.txt"><span class="calibre7">http://www.ics.uci.edu/pub/ietf/uri/draft-ietf-uri-url-finger-03.txt </span></a>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> freenet </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 获取中迅互联分布式信息系统中信息所用的URI。参见[http://freenet.sourceforge.net](http://freenet.sourceforge.net)Link text </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> ftp </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 文件传输协议方案 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 1738 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> gopher </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 古老的 gopher 协议 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 1738 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> gsm-sms </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 用于 GSM 移动电话短信业务的 URI。 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> h323，h324 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 多媒体会议的 URI 方案。</span><br class="calibre2"/><span class="calibre7">参见</span><a href="http://www.ics.uci.edu/pub/ietf/uri/draft-cordell-sg16-conv-url-00.txt"><span class="calibre7">http://www.ics.uci.edu/pub/ietf/uri/draft-cordell-sg16-conv-url-00.txt </span></a><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> hdl </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Handle 是个被广泛应用的系统，用于分配、管理数字对象和因特网上的其他资源，并将其解析成名为 handles 的永久标识符。可以将 handle 作为 URN 使用。参见</span><a href="http://www.handle.net"><span class="calibre7">http://www.handle.net </span></a>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> hnews </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> HNEWS 是 NNTP 新闻协议的一个 HTTP 隧道变体。hnews URL 语法设计与当前常用的新闻URL 方案兼容。参见</span><a href="http://www.ics.uci.edu/pub/ietf/uri/draft-stockwell-hnews-url-00.txt"><span class="calibre7">http://www.ics.uci.edu/pub/ietf/uri/draft-stockwell-hnews-url-00.txt </span></a><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> http </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> HTTP 协议。更多信息请参见本书 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 2616 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> https </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> SSL 上的HTTP。</span><br class="calibre2"/><span class="calibre7">参见</span><a href="http://sitesearch.netscape.com/eng/ssl3/draft302.txt"><span class="calibre7">http://sitesearch.netscape.com/eng/ssl3/draft302.txt </span></a><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> iioploc </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> CORBA 扩展。可互操作的名字服务定义了一种 URL 格式的对象引用——iioploc，可以将其输入一个程序中，以获取包括名字服务在内的已定义远程服务。比如，以下 iioploc 标识符：</span><br class="calibre2"/><span class="calibre7">iioploc://www.omg.org/NameService 就表示运行在 IP 地址与域名 </span><a href="http://www.omg.org"><span class="calibre7">www.omg.org</span></a><span class="calibre7"> 相对应的机器上的 CORBA 名字服务。参见</span><a href="http://www.omg.org"><span class="calibre7">http://www.omg.org </span></a>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> ilu </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> ILU（Inter-Language Unification，跨语言统一）系统是一个多语言对象接口系统。ILU 提供的对象接口隐藏了不同语言、不同地址空间和不同操作系统之间的实现差异。可以通过ILU，用经过良好说明的语言无关接口来构建多语言的面向对象库（类库）。还可以将其用于实现分布式系统。</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">参见ftp://parcftp.parc.xerox.com/pub/ilu/ilu.html</span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> imap </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> IMAP URL 方案用于分配 IMAP 服务器、邮箱、报文、MIME 主体[MIME]，在因特网主机上搜索可以通过 IMAP 协议访问的程序 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 2192 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> IOR </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> CORBA 的互操作对象引用。</span><br class="calibre2"/><span class="calibre7">请参见</span><a href="http://www.omg.org"><span class="calibre7">http://www.omg.org </span></a><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> irc </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> irc URL 方案用于表示IRC（Internet Relay Chat，因特网中继聊天）服务器或者 IRC 服务器上的独立实体（信道或人）。</span><br class="calibre2"/><span class="calibre7">参见</span><a href="http://www.w3.org/Addressing/draft-mirashi-url-irc-01.txt"><span class="calibre7">http://www.w3.org/Addressing/draft-mirashi-url-irc-01.txt </span></a>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> isbn </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 建议用于 ISBN 书籍参考的方案。</span><br class="calibre2"/><span class="calibre7">参见</span><a href="http://lists.w3.org/Archives/Public/www-talk/1991NovDec/0008.html"><span class="calibre7">http://lists.w3.org/Archives/Public/www-talk/1991NovDec/0008.html </span></a><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> java </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 用来识别 Java 类 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> javascript </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 网景的浏览器会处理 javascript URL，如果冒号（ ：）后面有表达式，则计算它的值，只要表达式字符串的值不是未定义的，就会加载包含了这个值的页面 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> jdbc </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 用于 Java SQL API </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> lda </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 允许因特网客户端直接访问 LDAP 协议 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 2255 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> lid </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 本地标识符方案。</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">参见 draft-blackketter-lid-00</span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> lifn </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> UTK 开发的批量文件分发分布式存储系统所使用的lifn（locationindependent file name，位置无关文件名） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> livescript </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> JavaScript 的曾用名 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> lrq </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 参见h323 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> mailto </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> URL 方案 mailto 用于访问单个用户或服务的因特网邮件地址 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 2368 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> mailserver </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 1994 ～ 1995 年的老建议，支持将整条报文都编码到一个 URL 中去，这样（比如说）URL 可以自动向邮件服务器发送订阅邮件列表的电子邮件了 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> md5 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> MD5 是一种密码校验和 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> mid </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> mid 方案用电子邮件报文的message-id（一部分）来引用一个特定的报文 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 2392</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">2111</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> mocha </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 参见javascript </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> modem </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> modem 方案描述了一条连接，连接到能够处理输入数据呼叫的终端上去 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 2806 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> mms、mmst、mmsu </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> MMS（Microsoft Media Server，微软媒体服务器）以流方式传送 ASF（Active Streaming Format，活动流格式）文件时使用的方案。强制使用 UDP 传输时，使用 mmsu 方案。强制使用 TCP 传输时，使用 mmst 方案 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> news </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> news URL 方案指的是 USENET 新闻中的新闻组，或独立的文章。</span><br class="calibre2"/><span class="calibre7">news URL 使用下列两种格式之一：</span><br class="calibre2"/><span class="calibre7"><span class="italic">news:</span></span><span class="calibre7">&lt;</span><span class="calibre7"><span class="italic">newsgroup-name</span></span><span class="calibre7">&gt; 或</span><span class="calibre7"><span class="italic">news:</span></span><span class="calibre7">&lt;</span><span class="calibre7"><span class="italic">message-id </span></span><span class="calibre7">&gt;</span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 1738</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">1036</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> nfs </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 指的是 NFS 服务器上的文件和目录 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 2224 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> nntp </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 另一种引用 news 文章的方法，指定 NNTP 服务器上的 news 文章时很有用。nntp URL 看起来如下所示：</span><br class="calibre2"/><span class="calibre7">nntp://&lt;</span><span class="calibre7"><span class="italic">host</span></span><span class="calibre7">&gt;:&lt;</span><span class="calibre7"><span class="italic">port</span></span><span class="calibre7">&gt;/&lt;</span><span class="calibre7"><span class="italic">newsgroup-name</span></span><span class="calibre7">&gt;/&lt;</span><span class="calibre7"><span class="italic">article-num</span></span><span class="calibre7">&gt;</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">注意，尽管 nntp URL 为文章资源指定了唯一的位置信息，但现在因特网上大部分 NNTP 服务器都配置为只允许从本地客户端访问，nntp URL 因此就无法指定全球可访问的资源了。因此，URL 的 news 格式更常作为识别新闻性文章的一种方式</span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 1738</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">977</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> opaquelocktoken </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 以 URI 形式表示的 WebDAV 锁定令牌，用于标识特定锁的。每个成功的 LOCK 操作都会在响应主体的 lockdiscovery 特性中返回锁定令牌，也可以通过资源的锁发现操作找到它。参见 RFC 2518 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> path </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> path 方案定义了一个统一的层次化命名空间。在这个空间中，path URN 就是由一些组件和可选的不透明字符串组成的序列。</span><br class="calibre2"/><span class="calibre7">参见</span><a href="http://www.hypernews.org/~liberte/www/path.html"><span class="calibre7">http://www.hypernews.org/~liberte/www/path.html </span></a><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> phone </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 在“电话的URL”中使用。在 RFC 2806 中被 tel: 取代 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> pop </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> POP URL 指定了一个 POP 电子邮件服务器，一个可选的端口号、认证机制、认证 ID 和 / 或授权 ID </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 2384 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> pnm </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Real 网络公司的流媒体协议 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> pop3 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> POP3 URL 方案允许 URL 指定一个 POP3 服务器，允许其他协议使用通用的“用于邮件访问的URL”取代对 POP3 的显式引用。在已过期的 draft-earhart-url-pop3-00.txt 中定义 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> printer </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 用于服务定位标准的抽象URL。</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">参见draft-ietf-srvloc-printer-scheme-02.txt</span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> prospero </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 通过 prospero 目录服务访问的名字资源 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 1738 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> res </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 微软的方案，指定了一个要从某模块中获取的资源。包含一个字符串或数字资源类型和一个字符串或数字 ID </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> rtsp </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 实时流协议，是 Real 网络公司现代流媒体控制协议的基础协议 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 2326 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> rvp </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RVP 集合点协议的URL，用于在某计算机网络上发布用户到来的通知。参见draft-calsyn-rvp-01 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> rwhois </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RWhois 是在 RFC 1714 和 RFC 2167 中定义的因特网目录访问协议。RWhois URL 将 rwhois 的直接访问权赋予了客户端。</span><br class="calibre2"/><span class="calibre7">参见</span><a href="http://www.rwhois.net/rwhois/docs/"><span class="calibre7">http://www.rwhois.net/rwhois/docs/ </span></a><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> rx </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 一种结构，允许远程图像应用程序在 Web 页面中显示数据。</span><br class="calibre2"/><span class="calibre7">参见</span><a href="http://www.w3.org/People/danield/papers/mobgui/"><span class="calibre7">http://www.w3.org/People/danield/papers/mobgui/ </span></a>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> sdp </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> sdp（session description protocol，会话描述协议）URL。参见 RFC 2327 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> service </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> service 方案可以为任意网络服务提供访问信息。这些 URL 为基于客户端的网络软件提供了一种可扩展的框架，以获取使用网络服务所需的配置信息 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 2609 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> sip </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> sip* 族方案用于建立使用sip（session initiation protocol，会话发起协议）的多媒体会议 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 2543 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> shttp </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> S-HTTP 是 HTTP 的超集，用于保护 HTTP 连接，它提供了大量机制用以实现保密性、认证功能和完整性。S-HTTP 没有被广泛采用，主要是被HTTPS（经过 SSL 加密的HTTP）取代了。</span><br class="calibre2"/><span class="calibre7">参见</span><a href="http://www.homeport.org/~adam/shttp.html"><span class="calibre7">http://www.homeport.org/~adam/shttp.html </span></a>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> snews </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 经 SSL 加密的 news </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> STANF </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 用于可靠网络文件名的老建议。与 URN 有关。</span><br class="calibre2"/><span class="calibre7">参见</span><a href="http://Web3.w3.org/Addressing/#STANF"><span class="calibre7">http://Web3.w3.org/Addressing/#STANF </span></a>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> t120 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 参见h323 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> tel </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 通过电话网打电话的URL </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 2806 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> telephone </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 用于 tel 的早期草案中 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> telnet </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 指定了可能会被 Telnet 协议访问的交互式业务。Telent URL 的格式如下所示：</span><br class="calibre2"/><span class="calibre7"><span class="italic">telnet</span></span><span class="calibre7">://&lt;</span><span class="calibre7"><span class="italic">user</span></span><span class="calibre7">&gt;:&lt;</span><span class="calibre7"><span class="italic">password</span></span><span class="calibre7">&gt;@&lt;</span><span class="calibre7"><span class="italic">host</span></span><span class="calibre7">&gt;:&lt;</span><span class="calibre7"><span class="italic">port </span></span><span class="calibre7">&gt;/</span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 1738 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> tip </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持 TIP 原子化的因特网事务处理 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 2371</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">2372</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> tn3270 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 根据ftp://ftp.isi.edu/in-notes/iana/assignments/url-schemes 保留 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> tv </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> TV URL 命名了一个特定的电视广播信道 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 2838 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> uuid </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> UUID（通用唯一标识符）不包含与位置有关的信息。也称为 GUID（全球唯一标识符）。由一个 128 位的唯一 ID 组成。它和 URN 一样，不会随时间发生变化。要使用无法或不应该依赖于特定的物理根名字空间（比如一个 DNS 名称）的通用标识符时，UUID URI 是很有用的。</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">参见draft-kindel-uuid-uri-00.txt</span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> urn </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 持久的、与位置无关的 URN </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 2141 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> vemmi </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 允许VEMMI（万用多媒体接口）客户端软件和 VEMMI 终端连接 VEMMI 兼容的服务。VEMMI 是一种在线多媒体应用服务的国际标准 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 2122 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> videotex </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 允许 videotex 客户端软件或终端连接与 ITU-T 和 ETSI videotex 标准兼容的 videotex 服务。</span><br class="calibre2"/><span class="calibre7">参见</span><a href="http://www.ics.uci.edu/pub/ietf/uri/draft-mavrakis-videotex-urlspec-01.txt"><span class="calibre7">http://www.ics.uci.edu/pub/ietf/uri/draft-mavrakis-videotex-urlspec-01.txt </span></a><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> view-source </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 网景的 Navigator 的源码查看器。这些 view-source URL 可以显示用 JavaScript 生成的HTML </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> wais </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 广域信息服务——一种早期搜索引擎形式 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 1738 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> whois++ </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> WHOIS++ 简单因特网目录协议的 URL。</span><br class="calibre2"/><span class="calibre7">参见</span><a href="http://martinh.net/wip/whois-url.txt"><span class="calibre7">http://martinh.net/wip/whois-url.txt </span></a>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 1835 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> whodp </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> WhoDP（Widely Hosted Object Data Protocol，广泛托管对象数据协议）用于沟通大量动态、可重定位对象的当前位置和状态传递。WhoDP 程序通过“订阅”定位对象，接收与某对象有关的信息，并“发布”这些信息，控制此对象的位置和可见状态 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> z39.50r，z39.50s </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Z39.50 会话与检索 URL。Z39.50 是一种信息检索协议，不能很好地适用于主要为获取无状态数据而设计的检索模式。它将通用的用户查询设计为面向会话的多步任务，服务器在继续处理任务之前，会向客户端请求额外的参数，因此每一步任务都可能被临时挂起 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 2056 </span>
+</td></tr></table><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><div class="mbp_pagebreak" id="calibre_pb_201"></div>
+</body></html>

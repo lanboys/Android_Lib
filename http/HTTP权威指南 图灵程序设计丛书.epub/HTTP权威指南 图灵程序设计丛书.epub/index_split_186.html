@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos1298807" class="calibre_"><span class="calibre3"><span class="bold">20.3　重定向协议概览</span></span></p><p class="calibre_">重定向的目标是尽快地将 HTTP 报文发送到可用的 Web 服务器上去。在穿过因特网的路径上，HTTP 报文传输的方向会受到 HTTP 应用程序和报文经由的路由设备的影响，参见以下示例。</p><div class="calibre_5"> </div><ul class="calibre_6"><li value="1" class="calibre_7"><p class="calibre_">配置创建客户端报文的浏览器应用程序，使其将报文发送给代理服务器。</p></li><li value="2" class="calibre_7"><p class="calibre_">DNS 解析程序会选择用于报文寻址的 IP 地址。对不同物理地域的不同客户端来说，这个 IP 地址可能不同。</p></li><li value="3" class="calibre_7"><p class="calibre_">报文经过网络传输时，会被划分为一些带有地址的分组；交换机和路由器会检查分组中的 TCP/IP 地址，并据此来确定分组的发送路线。</p></li><li value="4" class="calibre_7"><p class="calibre_">Web 服务器可以通过 HTTP 重定向将请求反弹给不同的 Web 服务器。</p></li></ul><p class="calibre_">浏览器配置、DNS、TCP/IP 路由以及 HTTP 都提供了重定向报文的机制。注意，有些方法，比如浏览器配置，只有在将流量重定向到代理的时候才有意义，而其他一些方法（比如 DNS 重定向），则可用于将流量发送给任意服务器。<sup class="calibre4"><small class="calibre5"><span class="calibre6">1</span></small></sup></p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">1：DNS 也不能随便重定向，目标 IP 地址的服务器上没有托管所需的虚拟主机的话，就和浏览器代理配错一样，毫无意义。（译者注）</span></small></sup></p><p class="calibre_">表 20-1 总结了用来将报文重定向到服务器的重定向方法，本章稍后逐一讨论每种方法。</p><p class="calibre_"><span class="bold">表20-1　通用的重定向方法</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_36"><span class="calibre7"><span class="bold"> 机　　制 </span></span>
+</th><th valign="top" class="calibre_206"><span class="calibre7"><span class="bold"> 工作方式 </span></span>
+</th><th valign="top" class="calibre_207"><span class="calibre7"><span class="bold"> 重新路由的基础 </span></span>
+</th><th valign="top" class="calibre_207"><span class="calibre7"><span class="bold"> 局　限　性 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> HTTP 重定向 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 最初，HTTP 请求先到第一台 Web 服务器，这台服务器会选择一台“最佳”的 Web 服务器为其提供内容。第一台 Web 服务器会向客户端发送一条到指定服务器的 HTTP 重定向。客户端会将请求重新发送到选中的服务器上 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 选择最短路径时可用的选项很多，包括轮转（round-robin）负载均衡和最小化时延等 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 可能会很慢——每个事务都包含了附加的重定向步骤。而且，第一台服务器一定要能够处理请求负载 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> DNS 重定向 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> DNS 服务器决定在 URL 的主机名中返回多个 IP 地址中的哪一个 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 选择最短路径时可用的选项很多，包括轮转（round-robin）负载均衡和最小化时延等 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 需要配置 DNS 服务器 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 任播寻址 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 几台服务器使用相同的 IP 地址。每台服务器都会伪装成一个骨干路由器。其他路由器会将共享 IP 地址分组发送给最近的服务器（认为它们将分组发送给最近的路由器） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 路由器有内建的最短路径路由功能 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 需要拥有 / 配置路由器。有地址冲突的风险。如果路由变化了，与已建立的 TCP 连接相关的分组会被发送到其他的服务器，可能会使 TCP 连接断裂 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> IP MAC 转发 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 交换机或路由器这样的网元会读取分组的目的地址。如果应该将分组重定向，交换机会将服务器或代理的目标 MAC 地址赋予分组 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 节省带宽，提高QOS。负载均衡 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 服务器或代理的跳距必须是1 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> IP 地址转发 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 第四层交换机会评估分组的目的端口并将重定向分组的 IP 地址改成代理或镜像服务器的 IP 地址 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 节省带宽，提高QOS。负载均衡 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 服务器或代理可能看不到真正的客户端 IP 地址 </span><span class="calibre_18">
+</span></td></tr></table><p class="calibre_">表 20-2 总结了将报文重定向到代理服务器的重定向方法。</p><p class="calibre_"><span class="bold">表20-2　代理与缓存重定向技术</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_208"><span class="calibre7"><span class="bold"> 机　　制 </span></span>
+</th><th valign="top" class="calibre_208"><span class="calibre7"><span class="bold"> 工作方式 </span></span>
+</th><th valign="top" class="calibre_36"><span class="calibre7"><span class="bold"> 重新路由的基础 </span></span>
+</th><th valign="top" class="calibre_207"><span class="calibre7"><span class="bold"> 局　限　性 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 显式浏览器配置 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 配置 Web 浏览器，使其将 HTTP 报文发送给附近的一个代理，通常是缓存。可以由终端用户或管理浏览器的服务进行配置 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 节省带宽，提高 QoS。负载均衡 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 取决于配置浏览器的能力 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 代理自动配置（PAC） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Web 浏览器从配置服务器中解析出PAC 文件。这个 PAC 文件会告诉浏览器为每个 URL 使用什么代理 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 节省带宽，提高 QoS。负载均衡 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 必须配置浏览器，使其去查询配置服务器 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> Web Proxy 代理自动发现协议（WPAD） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Web 浏览器向配置服务器查询一个 PAC 文件的URL。与单独使用 PAC 不同，不需要将浏览器配置为使用特定的配置服务器 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 配置服务器，将 URL 建立在客户端 HTTP 请求首部提供的信息之上。负载均衡 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 只有部分浏览器支持 WPAD </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> Web 缓存协调协议（WCCP） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 路由器会评估一个分组的目的地址，并用代理或镜像服务器的 IP 地址将重定向分组封装起来。可以与很多现有路由器共同工作。可以将分组封装起来，这样客户端的 IP 地址就不会丢失了 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 节省带宽，提高 QoS。负载均衡 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 必须使用支持 WCCP 的路由器。有些拓扑结构方面的限制 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 因特网缓存协议（ICP） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 代理缓存会在一组兄弟代理缓存中查询所请求的内容。还支持缓存的分层结构 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 从兄弟代理或父代理缓存中获取内容比从原始服务器中获取更快 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求内容时只使用了 URL，所以会降低缓存命中率 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 缓存分组路由协议（CARP） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 一种代理缓存散列协议。允许缓存将请求转发给一个父缓存。与 ICP 不同的是，高速缓存上的内容是不相交的，这组缓存会像一个大型缓存那样工作 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 从附近的对等高速缓存中获取内容要比从原始服务器上获取快 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> CARP 无法支持兄弟关系。所有 CARP 客户端都必须在配置上达成一致；否则，不同的客户端就会向不同的父代理缓存发送相同的URI，降低命中率 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 超文本缓存协议（HTCP） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 参与的代理缓存可以向一组兄弟缓存查询所请求的内容。支持 HTTP 1.0 和 1.1 首部，以便精细地调整缓存查询 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 从兄弟代理或父代理缓存中获取内容比从原始服务器上获取快 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr></table><div class="mbp_pagebreak" id="calibre_pb_186"></div>
+</body></html>

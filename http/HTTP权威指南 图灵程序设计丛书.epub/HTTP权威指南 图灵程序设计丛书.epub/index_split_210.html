@@ -1,0 +1,487 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos1596976" class="calibre_"><span class="calibre1"><span class="bold">附录 D　MIME 类型（二）</span></span></p><p class="calibre_"><span class="calibre3"><span class="bold">D.4　MIME类型表</span></span></p><p class="calibre_">本节在 10 张表格中对数百种 MIME 类型进行了总结。每张表格都列出了一个特定主类型（image、text 等）中的 MIME 媒体类型。</p><p class="calibre_">这些信息是从很多地方搜集来的，包括 IANA 的媒体类型注册登记处、Apache 的 mime.types 文件，以及各种各样的因特网 Web 页面。我们花了好多天来提炼数据，填补漏洞，并在其中包含了交叉参考文献中的描述性总结，使数据的可用性更高。</p><p class="calibre_">这可能是有史以来最详细的 MIME 类型清单列表了。希望对你有所帮助！</p><p class="calibre_"><span class="calibre3"><span class="bold">D.4.1　application/*</span></span></p><p class="calibre_">表 D-3 描述了很多应用程序特有的 MIME 媒体类型。</p><p class="calibre_"><span class="bold">表D-3　Application MIME类型</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_36"><span class="calibre7"><span class="bold"> MIME类型 </span></span>
+</th><th valign="top" class="calibre_70"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> 扩　　展 </span></span>
+</th><th valign="top" class="calibre_138"><span class="calibre7"><span class="bold"> 联系方式与参考文献 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/activemessage </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持主动邮件群件系统 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre7"><span class="italic">Readings in Groupware and ComputerSupported CooperativeWork </span></span><span class="calibre7">, “Active Mail: A Framework for Integrated Groupware Applications”，Ronald M. Baecker，Morgan Kaufmann 出版社，ISBN1558602410</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/andrew-inset </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持用安德鲁工具集创建多媒体内容 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> ez </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre7"><span class="italic">Multimedia Applications Development with the Andrew Toolkit</span></span><span class="calibre7">,Nathaniel S. Borenstein，Prentice Hall 出版社，AS-IN 0130366331</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">nsb@bellcore.com</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/applefile </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 在允许对非特定用户数据进行一般性访问的同时，允许对带有 Apple/Macintosh 特有信息的数据进行基于 MIME 的传输 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 1740 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/atomicmail </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> ATOMICMAIL 是贝尔通信研究所的一个实验型研究项目，设计用来在电子邮件报文中包含一些在阅读邮件时会执行的程序。对 safe-tcl 的支持会很快使 ATOMICMAIL 过时 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> “ATOMICMAIL Language Reference Manual”，Nathaniel S. Borenstein，贝尔科技备忘录，TM ARH-018429 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/batch-SMTP </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 定义了一个 MIME 内容类型，可以用隧道方式通过任意能够进行 MIME 传输的路径实现ESMTP邮件事务 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2442 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/beep+xml </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持名为 BEEP 的交互协议。BEEP 支持在对等实体之间对 MIME 报文进行同步且独立的交互，这些报文通常都是 XML 结构的文本 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 3080 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/cals1840 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持对美国国防部数字数据进行 MIME 电子邮件交换，早期这些数据是 MILSTD-1840 定义的由磁带实现数据交换的 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC1895 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/commonground </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Common Ground 是个电子文档交换及发布程序，允许用户创建一些文档，这些文档无需在系统中创建任何应用程序或字体，所有人都可以查看、搜索和打印 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Nick Gault</span><br class="calibre2"/><span class="calibre7">No Hands 软件</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">ngault@nohands.com</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/cybercash </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持通过 CyberCash 协议进行信用卡支付。用户开始付费时，商家会向客户发送一条报文，作为 MIME 类型 application/cybercash 的报文主体使用 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 1898 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/dcarft </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> IBM 文档内容结构 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> “IBM Document Content Architec-ture/Revisable Form Text Reference”，文档号SC23-0758-1，国际商用机器公司（International Business Machines，IBM） </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/decdx </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> DEC 的文档传输格式 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> “Digi tal Document Transmission (DX) Technical Notebook”，文档号 EJ29141-86，数字设备公司（DEC，Digital Equipment Corporation） </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/dvcs </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持 DVCS（Data Validation and Certification Server，数据验证及证书服务器）所使用的协议，该服务器在公共密钥安全架构中作为第三方受信站点使用的 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 3029 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/EDI-Consent </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持通过EDI（electronic data interchange，电子数据交换）用非标准的规范进行双边贸易 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.isi.edu/in-notes/iana/assignments/media-types/application/EDI-Consent"><span class="calibre7">http://www.isi.edu/in-notes/iana/assignments/media-types/application/EDI-Consent </span></a><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/EDI-X12 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持通过 EDI 用ASC X12 EDI 规范进行双边贸易 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.isi.edu/in-notes/iana/assignments/media-types/application/EDI-X12"><span class="calibre7">http://www.isi.edu/in-notes/iana/assignments/media-types/application/EDI-X12 </span></a>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/EDIFACT </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持通过 EDI 用 EDIFACT 规范进行双边贸易 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.isi.edu/in-notes/iana/assignments/media-types/application/EDIFACT"><span class="calibre7">http://www.isi.edu/in-notes/iana/assignments/media-types/application/EDIFACT </span></a><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/eshop </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 未知 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Steve Katz</span><br class="calibre2"/><span class="calibre7">系统结构商店</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">steve_katz@eshop.com</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/font-tdpfr </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 定义了包含一组字形的PFR（Portable Font Resource，便携式字体资源），每个字形都与一个字符码相关 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 3073 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/http </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 用于封装由一条或多条 HTTP 请求或响应报文（不混合）构成的管道 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2616 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/hyperstudio </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持 HyperStudio 教学超媒体文件的传输 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> stk </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.hyperstudio.com"><span class="calibre7">http://www.hyperstudio.com </span></a><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/iges </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> CAD 模型交换的常用格式 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> “ANS/US PRO/IPO-100” U.S. Product Data Association2722 Merrilee Drive,Suite 200 Fairfax, VA 22031-4499 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/index</span><br class="calibre2"/><span class="calibre7">application/index.cmd</span><br class="calibre2"/><span class="calibre7">application/index.obj</span><br class="calibre2"/><span class="calibre7">application/index.response</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">application/index.vnd</span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持 CIP（Common Indexing Protocol，公共索引协议）。CIP 是对 Whois++ 目录服务的发展，用于在服务器间传送索引信息，以便通过分布式数据库系统来重定向或复制请求 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2652、RFC 2651、RFC1913 和 RFC1914 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/iotp </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持在HTTP 上发送IOTP（Internet Open Trading Protocol，因特网开放贸易协议）报文 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2935 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/ipp </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持在HTTP 上使用IPP（Internet Printing Protocol，因特网打印协议） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2910 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/mac-binhex40 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 将 8 位字节的字符串编码为 7 位字节的字符串，这样对某些应用程序来说更安全一些（没有 6 位的 Base-64 编码安全） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> hqx </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 1341 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/maccompactpro </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 来自 Apache 的 mime.types </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> cpt </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/macwriteii </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Claris MacWrite II </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/marc </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> MARC 对象是机读编目记录——书目及相关信息的表示和通信标准 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> mrc </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2220 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/mathematica</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">application/mathematica-old</span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持 Mathematica 和MathReader 数值分析软件 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> nb、ma、mb </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre7"><span class="italic">The Mathemat ica Book </span></span><span class="calibre7">，Stephen Wolfram， 剑桥大学出版社，ISBN 0521643147</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/msword </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 微软的 Word MIME 类型 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> doc </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/newsmessageid </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 822（报文ID）、RFC1036（新闻应用程序）以及RFC977（NNTP） </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/newstransmission </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 允许通过电子邮件或其他传输方式传送新闻文章 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 1036 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/ocsp-request </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持OCSP（Online Certificate Status Protocol，在线证书状态协议），此协议提供了一种无需本地证书撤销列表即可查看数字证书有效性的方法 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> orq </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2560 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/ocsp-response </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> ors </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2560 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/octet-stream </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 未分类的二进制数据 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> bin、dms、lha、lzh、exe、class </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 1341 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/oda </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 根据ODA（Office Document Architecture，办公文档结构）标准，用ODIF（Office Document Interchange Format，办公文档交互格式）表示法对信息进行编码。</span><span class="calibre11"><tt class="calibre8">Content-Type</tt></span><span class="calibre7"> 行也应该像：</span><br class="calibre2"/><span class="calibre11"><tt class="calibre8">Content-Type:application/oda;profile=Q112</tt></span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">这样指定用来说明DAP（document application profile，文档应用外观）的属性 / 值对</span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> oda </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 1341</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">ISO 8613；“Information Processing: Text and Office System; Office Document Architecture (ODA) and Interchange Format (ODIF)”，第1-8 部分，1989 年</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/parityfec </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RTP 数据流的前向纠错奇偶码 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 3009 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/pdf </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Adobe PDF 文件 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> pdf </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 参见 </span><span class="calibre7"><span class="italic">Portable Document Format Reference Manual </span></span><span class="calibre7">，Adobe System, Inc. Addison Wesley，ISBN0201626284</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/pgpencrypted </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> PGP 加密数据 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2015 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/pgpkeys </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> PGP 公共密钥块 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2015 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/pgpsignature </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> PGP 加密签名 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2015 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/pkcs10 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 公共密钥加密系统#10——传输 PKCS #10 证书请求时，主体类型必须用 application/pkcs10 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> p10 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2311 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/pkcs7-mime </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 公共密钥加密系统#7——这种类型用于传送包括 envelopedData 和 signedData 在内的几种类型的 PKCS #7 对象 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> p7m </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2311 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/pkcs7-signature </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 公共密钥加密系统#7——这种类型总是包含一个 signedData 类型的 PKCS #7 对象 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> p7s </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2311 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/pkix-cert </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 传输 X.509 证书 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> cer </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2585 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/pkix-crl </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 传输 X.509 证书撤销列表 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> crl </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2585 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/pkixcmp </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> X.509 公共密钥基础设施证书管理协议所使用的报文格式 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> pki </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2510 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/postscript </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Adobe PostScript 图像文件（程序） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> ai、ps、eps </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2046 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/prs.alvestrand.titrax-sheet </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Harald T. Alvestrand 的“TimeTracker”程序 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://domen.uninett.no/~hta/titrax/"><span class="calibre7">http://domen.uninett.no/~hta/titrax/ </span></a>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/prs.cww </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Windows 下的 CU-Writer </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> cw、cww </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Somchai Prasitjutrakul 博士</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">somchaip@chulkn.car.chula.ac.th</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/prs.nprend </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 未知 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> rnd、rct </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> John M. Doggett</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">jdoggett@tiac.net</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/remote-printing </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 包含了远程打印时用于打印机封面的元信息 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 1486</span><br class="calibre2"/><span class="calibre7">Marshall T. Rose</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">mrose@dbc.mtview.ca.us</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/riscos </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Acorn 的 RISC OS 二进制文件 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RISC OSProgrammer's Reference Manuals，AcornComputers ,Ltd.，ISBN1852501103 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/sdp </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> SDP 用于描述各种多媒体会话，目的是进行会话声明、会话邀请以及其他形式的多媒体会话初始化 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2327</span><br class="calibre2"/><span class="calibre7">Henning Schulzrinne</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">hgs@cs.columbia.edu</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/setpayment</span><br class="calibre2"/><span class="calibre7">application/</span><br class="calibre2"/><span class="calibre7">set-paymentinitiation</span><br class="calibre2"/><span class="calibre7">application/setregistration</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">application/setregistrationinitiation</span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持 SET 安全电子交易支付协议 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.visa.com"><span class="calibre7">http://www.visa.com</span></a><br class="calibre2"/><a href="http://www.mastercard.com"><span class="calibre7">http://www.mastercard.com </span></a>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/sgml-opencatalog </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 用于支持 SGML Open TR9401: 1995 “实体管理”规范的系统 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> SGML Open</span><br class="calibre2"/><span class="calibre7">910 Beaver Grade Road，#3008</span><br class="calibre2"/><span class="calibre7">Coraopolis，PA 15109</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">info@sgmlopen.org</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/sieve </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Sieve 邮件过滤脚本 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 3028 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/slate </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> BBN/Slate 文档格式是作为 BBN/Slate 产品标准文档集的一部分发布的 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> BBN/Slate Product Mgr</span><br class="calibre2"/><span class="calibre7">BBN Systems and Technologies</span><br class="calibre2"/><span class="calibre7">10 Moulton Street</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">Cambridge, MA 02138</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/smil </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> SMIL（同步多媒体集成语言，Synchronized Multimedia Integration Language）将一组独立的多媒体对象整合成了一种同步多媒体表示形式 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> smi、smil </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.w3.org/AudioVideo/"><span class="calibre7">http://www.w3.org/AudioVideo/ </span></a>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/tvetrigger </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持在增强型电视接收器里嵌入 URL </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> “SMPTE: Declarative Data Essence,Content Level 1”，由电影电视工程师协会生成。</span><br class="calibre2"/><a href="http://www.smpte.org"><span class="calibre7">http://www.smpte.org </span></a><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vemmi </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 增强型 videotex 标准 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> RFC 2122 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.3M.Post-it-Notes </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 由 Post-it® 因特网设计者须知因特网控制 / 插件使用 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> pwn </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.3M.com/psnotes/"><span class="calibre7">http://www.3M.com/psnotes/ </span></a><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.accpac.simply.aso </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Simply Accounting 软件的 7.0 及以上版本。这种类型的文件与 Open Financial Exchange 版本 1.02 的规范一致 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> aso </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.ofx.net"><span class="calibre7">http://www.ofx.net </span></a>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.accpac.simply.imp </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Simply Accounting 软件的 7.0 及以上版本使用，用于输入它自己的数据 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> imp </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.ofx.net"><span class="calibre7">http://www.ofx.net </span></a><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.acucobol </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> ACUCOBOL-GT Runtime </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Dovid Lubin</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">dovid@acucobol.com</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.aether.imp </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持在 AOL 即时通信、Yahoo! Messenger 或 MSN Messenger 这样的即时消息服务，和运行在无线设备上的特殊即时通信客户端软件集之间进行高效的即时消息通信 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 有许可证就可以从 Aether 系统中获得 IMP（Wireless Instant Messaging Protocol，无线即时通信协议）规范 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.anser-Webcertificateissue-initiation </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Web 浏览器装载 ANSER-WEBTerminal Client 程序的触发器 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> cii </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Hiroyoshi Mori</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">mori@mm.rd.nttdata.co.jp</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.anser-Webfunds-transferinitiation </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> fti </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.audiograph </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> AudioGraph </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> aep </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Horia Cristian</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">H.C.Slusanschi@massey.ac.nz</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.bmi </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> CADAM 系统的 BMI 图像格式 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> bmi </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Tadashi Gotoh</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">tgotoh@cadamsystems.co.jp</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.businessobjects </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> BusinessObjects4.0 及以上版本 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> rep </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.canon-cpdl</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">application/vnd.canon-lips</span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持佳能公司的办公图像产品 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Shin Muto</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">shinmuto@pure.cpdc.canon.co.jp</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.claymore </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Claymore.exe </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> cla </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Ray Simpson</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">ray@cnation.com</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.commercebattelle </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持一种通用的智能卡卡载信息定界机制，可用于数字商务、身份识别、认证以及基于智能卡的持证人信息交互 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> ica、icf、icd、icc、ic0、ic1、ic2、ic3、ic4、ic5、ic6、ic7、ic8 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> David C. Applebaum</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">applebau@131.167.52.15</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.commonspace </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 允许通过基于 MIME 的进程正确传输 CommonSpace ™文档。CommonSpace 是由 HoughtonMifflin 公司的 Sixth Floor Media 发布的 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> csp、cst </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Ravinder Chandhok</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">chandhok@within.com</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.contact.cmsg </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 用于 CONTACT 软件的 CIM DATABASE </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> cdbcmsg </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Frank Patz</span><br class="calibre2"/><span class="calibre7">fp@contact.de</span><br class="calibre2"/><a href="http://www.contact.de"><span class="calibre7">http://www.contact.de </span></a><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.cosmocaller </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 允许从 Web 站点下载包含了连接参数的文件，调用 CosmoCaller 应用程序对参数进行解释，并初始化与 CosmoCallACD 服务器的连接 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> cmc </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Steve Dellutri</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">sdellutri@cosmocom.com</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.ctc-posml </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Continuum 技术公司的 PosML </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> pml </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Bayard Kohlhepp</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">bayardk@ctcexchange.com</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.cups-postscript</span><br class="calibre2"/><span class="calibre7">application/vnd.cups-raster</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">application/vnd.cups-raw</span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持 UNIX 通用打印系统的服务器和客户端 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.cups.org"><span class="calibre7">http://www.cups.org </span></a>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.cybank </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Cybank 数据特有的数据类型 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Nor Helmee B. Abd. Halim</span><br class="calibre2"/><span class="calibre7">helmee@cybank.net</span><br class="calibre2"/><a href="http://www.cybank.net"><span class="calibre7">http://www.cybank.net </span></a><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.dna </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> DNA 的目标是便捷地将所有 32 位的 Windows 应用程序都转换成 Web 程序 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> dna </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Meredith Searcy</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">msearcy@newmoon.com</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.dpgraph </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 由 DpGraph 2000 和 MathWare Cyclone 使用 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> dpg、mwcdpgraph </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> David Parker</span><br class="calibre2"/><a href="http://www.davidparker.com"><span class="calibre7">http://www.davidparker.com </span></a><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.dxr </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> PSI 技术公司的 Digital Xpress Reports </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> dxr </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Michael Duffy</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">miked@psiaustin.com</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.ecdis-update </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持 ECDIS 应用程序 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.sevencs.com"><span class="calibre7">http://www.sevencs.com </span></a><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.ecowin.chart</span><br class="calibre2"/><span class="calibre7">application/vnd.ecowin.filerequest</span><br class="calibre2"/><span class="calibre7">application/vnd.ecowin.fileupdate</span><br class="calibre2"/><span class="calibre7">application/vnd.ecowin.series</span><br class="calibre2"/><span class="calibre7">application/vnd.ecowin.seriesrequest</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">application/vnd.ecowin.seriesupdate</span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> EcoWin </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> mag </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Thomas Olsson</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">thomas@vinga.se</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.enliven </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持 Enliven 交互式多媒体的传输 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> nml </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Paul Santinelli</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">psantinelli@narrative.com</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.epson.esf </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 精工爱普生 QUASS 流播放器的特有内容 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> esf </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Shoji Hoshina</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">Hoshina.Shoji@exc.epson.co.jp</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.epson.msf </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 精工爱普生 QUASS 流播放器的特有内容 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> msf </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.epson.quickanime </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 精工爱普生 QuickAnime 播放器的特有内容 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> qam </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Yu Gu</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">guyu@rd.oda.epson.co.jp</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.epson.salt </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 精工爱普生 SimpleAnimeLite 播放器的特有内容 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> slt </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Yasuhito Nagatomo</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">naga@rd.oda.epson.co.jp</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.epson.ssf </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 精工爱普生 QUASS 流播放器的特有内容 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> ssf </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Shoji Hoshina</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">Hoshina.Shoji@exc.epson.co.jp</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.ericsson.quickcall </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 电话倍增器快速呼叫 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> qcall、qca </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Paul Tidwell</span><br class="calibre2"/><span class="calibre7">paul.tidwell@ericsson.com</span><br class="calibre2"/><a href="http://www.ericsson.com"><span class="calibre7">http://www.ericsson.com </span></a><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.eudora.data </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Eudora 4.3 及以上版本 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Pete Resnick</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">presnick@qualcomm.com</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.fdf </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Adobe 表单数据格式 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Forms Data Format（表单数据格式），Technical Note 5173，Adobe Systems </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.ffsns </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 用于与 FirstFloor 的 Smart Delivery 进行通信的应用程序 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Mary Holstege</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">holstege@firstfloor.com</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.FloGraphIt </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> NpGraphIt </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> gph </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.framemaker </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Adobe FrameMaker 文件 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> fm、mif、book </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.adobe.com"><span class="calibre7">http://www.adobe.com </span></a>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.fsc.Weblaunch </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持 Friendly 软件公司的高尔夫模拟软件 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> fsc </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Derek Smith</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">derek@friendlysoftware.com</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.fujitsu.oasys</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">application/vnd.fujitsu.oasys2</span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持富士通的 OASYS 软件 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> oas </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Nobukazu Togashi</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">togashi@ai.cs.fujitsu.co.jp</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.fujitsu.oasys2 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持富士通的 OASYS V2 软件 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> oa2 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.fujitsu.oasys3 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持富士通的 OASYS V5 软件 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> oa3 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Seiji Okudaira</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">okudaira@candy.paso.fujitsu.co.jp</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.fujitsu.oasysgp </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持富士通的 OASYS GraphPro 软件 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> fg5 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Masahiko Sugimoto</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">sugimoto@sz.sel.fujitsu.co.jp</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.fujitsu.oasysprs </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持富士通的 OASYS 展示软件 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> bh2 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Masumi Ogita</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">ogita@oa.tfl.fujitsu.co.jp</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.fujixerox.ddd </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持富士施乐的 EDMICS 2000 和DocuFile </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> ddd </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Masanori Onda</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">Masanori.Onda@fujixerox.co.jp</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.fujixerox.docuworks </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持富士施乐的 DocuWorks Desk 及 DocuWorks Viewer 软件 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> xdw </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Yasuo Taguchi</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">yasuo.taguchi@fujixerox.co.jp</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.fujixerox.docuworks.binder </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持富士施乐的 DocuWorks Desk 及 DocuWorks Viewer 软件 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> xbd </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.fut-misnet </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 未知 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Jaan Pruulmann</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">jaan@fut.ee</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.grafeq </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 让 GrafEq 的用户通过 Web 和电子邮件交换 GrafEq 文档 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> gqf、gqs </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.peda.com"><span class="calibre7">http://www.peda.com </span></a><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.groove-account </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Groove 是为小群组交互实现了虚拟空间的对等实体通信系统 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> gac </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Todd Joseph</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">todd_joseph@groove.net</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.groove-identitymessage </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> gim </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.groove-injector </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> grv </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.groove-toolmessage </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> gtm </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.groove-tooltemplate </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> tpl </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.groove-vcard </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> vcg </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 同上 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.hhe.lessonplayer </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持 LessonPlayer 和 Presentation-Editor 软件 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> les </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Randy Jones</span><br class="calibre2"/><span class="calibre7">Harcourt E-Learning</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">randy_jones@archipelago.com</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.hp-HPGL </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> HPGL 文件 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre7"><span class="italic">TheHP-GL/2 and HP RTL Referemce Guide </span></span><span class="calibre7">， Addison Wesley，ISBN 0201310147</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.hp-hpid </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 支持惠普的即时传输软件 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> hpi、hpid </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.instant-delivery.com"><span class="calibre7">http://www.instant-delivery.com </span></a>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.hp-hps </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 支持惠普的WebPrintSmart 软件 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> hps </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.hp.com/go/Webprintsmart_mimetype_specs/"><span class="calibre7">http://www.hp.com/go/Webprintsmart_mimetype_specs/ </span></a><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> application/vnd.hp-PCL</span><span class="calibre7"><span class="italic">application/vnd.hp-PCLXL </span></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> PCL 打印机文件 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> pcl </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> “PCL-PJL Technical Reference Manual Documentation Package”，HP Part No. 5012-0330 </span>
+</td></tr></table><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><div class="mbp_pagebreak" id="calibre_pb_210"></div>
+</body></html>

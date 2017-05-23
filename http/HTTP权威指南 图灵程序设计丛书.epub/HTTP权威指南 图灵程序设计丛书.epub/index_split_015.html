@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos53693" class="calibre_"><span class="calibre3"><span class="bold">1.4　事务</span></span></p><p class="calibre_">我们来更仔细地看看客户端是怎样通过 HTTP 与 Web 服务器及其资源进行事务处理的。一个 HTTP 事务由一条（从客户端发往服务器的）请求命令和一个（从服务器发回客户端的）响应结果组成。这种通信是通过名为 HTTP 报文（HTTP message）的格式化数据块进行的，如图 1-5 所示。</p><p class="calibre_8"><img src="images/00208.jpg" class="calibre_19"/></p><p class="calibre_10"><span class="calibre7">图 1-5　包含请求及响应报文的 HTTP 事务</span></p><p class="calibre_"><span class="calibre3"><span class="bold">1.4.1　方法</span></span></p><p class="calibre_">HTTP 支持几种不同的请求命令，这些命令被称为 <span class="bold">HTTP 方法</span>（HTTP method）。每条 HTTP 请求报文都包含一个方法。这个方法会告诉服务器要执行什么动作（获取一个 Web 页面、运行一个网关程序、删除一个文件等）。表 1-2 列出了五种常见的 HTTP 方法。</p><p class="calibre_"><span class="bold">表1-2　一些常见的HTTP方法</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_16"><span class="calibre7"><span class="bold"> HTTP方法 </span></span>
+</th><th valign="top" class="calibre_15"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> GET </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 从服务器向客户端发送命名资源 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> PUT </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 将来自客户端的数据存储到一个命名的服务器资源中去 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> DELETE </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 从服务器中删除命名资源 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> POST </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 将客户端数据发送到一个服务器网关应用程序 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> HEAD </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 仅发送命名资源响应中的HTTP 首部 </span><span class="calibre_18">
+</span></td></tr></table><p class="calibre_">我们会在第 3 章详细讨论 HTTP 方法。</p><p class="calibre_"><span class="calibre3"><span class="bold">1.4.2　状态码</span></span></p><p class="calibre_">每条 HTTP 响应报文返回时都会携带一个状态码。状态码是一个三位数字的代码，告知客户端请求是否成功，或者是否需要采取其他动作。表 1-3 显示了几种常见的状态码。</p><p class="calibre_"><span class="bold">表1-3　一些常见的HTTP状态码</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_20"><span class="calibre7"><span class="bold"> HTTP状态码 </span></span>
+</th><th valign="top" class="calibre_20"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 200 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> OK。文档正确返回 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 302 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Redirect（重定向）。到其他地方去获取资源 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 404 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Not Found（没找到）。无法找到这个资源 </span><span class="calibre_18">
+</span></td></tr></table><p class="calibre_">伴随着每个数字状态码，HTTP 还会发送一条解释性的“原因短语”文本（参见图 1-5 中的响应报文）。包含文本短语主要是为了进行描述，所有的处理过程使用的都是数字码。</p><p class="calibre_">HTTP 软件处理下列状态码和原因短语的方式是一样的。</p><blockquote class="calibre_21"><span class="calibre7"><tt class="calibre8">200 OK<br class="calibre2"/>200 Document attached<br class="calibre2"/>200 Success<br class="calibre2"/>200 All's cool, dude<br class="calibre2"/></tt></span></blockquote><p class="calibre_22">第 3 章详细解释了 HTTP 状态码。</p><p class="calibre_"><span class="calibre3"><span class="bold">1.4.3　Web页面中可以包含多个对象</span></span></p><p class="calibre_">应用程序完成一项任务时通常会发布多个 HTTP 事务。比如，Web 浏览器会发布一系列 HTTP 事务来获取并显示一个包含了丰富图片的 Web 页面。浏览器会执行一个事务来获取描述页面布局的 HTML“框架”，然后发布另外的 HTTP 事务来获取每个嵌入式图片、图像面板、Java 小程序等。这些嵌入式资源甚至可能位于不同的服务器上，如图 1-6 所示。因此，一个“Web 页面”通常并不是单个资源，而是一组资源的集合。</p><p class="calibre_8"><img src="images/00136.jpg" class="calibre_23"/></p><p class="calibre_10"><span class="calibre7">图 1-6　复合 Web 页面要为每个嵌入式资源使用一个单独的 HTTP 事务 </span></p><div class="mbp_pagebreak" id="calibre_pb_15"></div>
+</body></html>

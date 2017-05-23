@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos749428" class="calibre_"><span class="calibre3"><span class="bold">11.2　HTTP 首部</span></span></p><p class="calibre_">表 11-1 给出了七种最常见的用来承载用户相关信息的 HTTP 请求首部。这里我们先讨论前三个；后面四个首部用于更高级的识别技术，我们稍后讨论。</p><p class="calibre_"><span class="bold">表11-1　承载用户相关信息的HTTP首部</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_36"><span class="calibre7"><span class="bold"> 首部名称 </span></span>
+</th><th valign="top" class="calibre_36"><span class="calibre7"><span class="bold"> 首部类型 </span></span>
+</th><th valign="top" class="calibre_61"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">From </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 用户的 E-mail 地址 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">User-Agent </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 请求 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 用户的浏览器软件 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">Referer </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 用户是从这个页面上依照链接跳转过来的 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">Authorization </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 请求 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 用户名和密码（稍后讨论） </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">Client-IP </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 扩展（请求） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 客户端的 IP 地址（稍后讨论） </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">X-Forwarded-For </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 扩展（请求） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 客户端的 IP 地址（稍后讨论） </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">Cookie </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 扩展（请求） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 服务器产生的 </span><span class="calibre11"><tt class="calibre8">ID </tt></span><span class="calibre7"> 标签（稍后讨论）</span><span class="calibre_18">
+</span></td></tr></table><p class="calibre_"><tt class="calibre8">From</tt> 首部包含了用户的 E-mail 地址。每个用户都有不同的 E-mail 地址，所以在理想情况下，可以将这个地址作为可行的源端来识别用户。但由于担心那些不讲道德的服务器会搜集这些 E-mail 地址，用于垃圾邮件的散发，所以很少有浏览器会发送 <tt class="calibre8">From</tt> 首部。实际上，<tt class="calibre8">From</tt> 首部是由自动化的机器人或蜘蛛发送的，这样在出现问题时，网管还有个地方可以发送愤怒的投诉邮件。</p><p class="calibre_"><tt class="calibre8">User-Agent</tt> 首部可以将用户所用浏览器的相关信息告知服务器，包括程序的名称和版本，通常还包含操作系统的相关信息。要实现定制内容与特定的浏览器及其属性间的良好互操作时，这个首部是非常有用的，但它并没有为识别特定的用户提供太多有意义的帮助。下面是两种 <tt class="calibre8">User-Agent</tt> 首部，一种是网景的 Navigator 发送的，另一种是微软的 Internet Explorer 发送的：</p><div class="calibre_5"> </div><ul class="calibre_6"><li value="1" class="calibre_7"><p class="calibre_">Navigator 6.2</p><blockquote class="calibre_21"><span class="calibre7"><tt class="calibre8">User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.0; en-US; rv:0.9.4)<br class="calibre2"/>Gecko/20011128<br class="calibre2"/>  Netscape6/6.2.1<br class="calibre2"/></tt></span></blockquote></li><li value="2" class="calibre_53"><p class="calibre_">Internet Explorer 6.01</p><blockquote class="calibre_21"><span class="calibre7"><tt class="calibre8">User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.0)<br class="calibre2"/></tt></span></blockquote></li></ul><p class="calibre_22"><tt class="calibre8">Referer</tt> 首部提供了用户来源页面的 URL。<tt class="calibre8">Referer</tt> 首部自身并不能完全标识用户，但它确实说明了用户之前访问过哪个页面。通过它可以更好地理解用户的浏览行为，以及用户的兴趣所在。比如，如果你是从一个篮球网站抵达某个 Web 服务器的，这个服务器可能会推断你是个篮球迷。</p><p class="calibre_"><tt class="calibre8">From</tt>、<tt class="calibre8">User-Agent</tt> 和 <tt class="calibre8">Referer</tt> 首部都不足以实现可靠的识别。后面的小节对识别特定用户的策略进行了更为详细的讨论。 </p><div class="mbp_pagebreak" id="calibre_pb_114"></div>
+</body></html>

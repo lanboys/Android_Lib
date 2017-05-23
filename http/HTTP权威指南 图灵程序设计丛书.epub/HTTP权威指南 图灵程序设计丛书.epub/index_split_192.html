@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos1382258" class="calibre_"><span class="calibre3"><span class="bold">20.9　超文本缓存协议</span></span></p><p class="calibre_">之前我们讨论了 ICP，这个协议允许代理缓存向兄弟缓存查询文件是否存在。但设计 ICP 时考虑的是 HTTP/0.9 协议，因此，向兄弟缓存查询资源是否存在时，只允许缓存发送 URL。HTTP 版本 1.0 和 1.1 引入了很多新的请求首部，这些首部可以和 URL 一起用来确定文件是否匹配。因此，只在请求中发送 URL 可能无法得到精确的响应。</p><p class="calibre_">HTCP（超文本缓存协议）允许兄弟缓存之间通过 URL 和所有的请求及响应首部来相互查询文档是否存在，以降低错误命中的可能。而且 HTCP 允许兄弟缓存监视或请求在对方的缓存中添加或删除所选中的文档，并修改对方已缓存文档的缓存策略。</p><p class="calibre_">图 20-13 说明了一个 ICP 事务，此图也可以用来说明 HTCP 事务，后者是另一个对象发现协议。如果附近的缓存中有这个文档，发起请求的缓存可以打开一条到此缓存的 HTTP 连接，以获取那个文档的副本。ICP 和 HTCP 事务之间的区别体现在请求和响应细节上。</p><p class="calibre_">HTCP 报文的结构如图 20-15 所示。首部中包含了报文的长度和报文版本。数据部分开始是数据长度，包含了 opcode、响应代码、一些标记及 ID，最后是实际的数据。可选的认证部分跟在 Data 小节的后面。</p><p class="calibre_8"><img src="images/00220.jpg" class="calibre_214"/></p><p class="calibre_10"><span class="calibre7">图 20-15　HTCP 报文格式</span></p><p class="calibre_">报文字段的详细内容如下所述。</p><div class="calibre_5"> </div><ul class="calibre_6"><li value="1" class="calibre_7"><p class="calibre_"><span class="bold">首部</span></p><p class="calibre_">Header 部分包含 32 位的报文长度，8 位的主要协议版本和 8 位的次要协议版本。报文长度包含所有首部、数据和认证部分的长度。</p></li><li value="2" class="calibre_7"><p class="calibre_"><span class="bold">数据</span></p><p class="calibre_">Data 部分包含了 HTCP 报文，结构如图 20-15 所示。数据组件如表 20-6 所示。</p><p class="calibre_"><span class="bold">表20-6　HTCP数据组件</span></p></li></ul><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_36"><span class="calibre7"><span class="bold"> 组　　件 </span></span>
+</th><th valign="top" class="calibre_45"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 数据长度 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 16 位的 Data 部分字节数，包含 Length 字段自身的长度 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> Opcode  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> HTCP 事务的 4 位操作代码。表 20-7 列出了 Opcode 的完整内容 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 响应代码 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 说明事务成功或失败的 4 位键值。可能的值有：</span><br class="calibre2"/><span class="calibre7">0——没有进行认证，但需要进行认证；</span><br class="calibre2"/><span class="calibre7">1——需要进行认证，但没有得到满足；</span><br class="calibre2"/><span class="calibre7">2——未实现的Opcode；</span><br class="calibre2"/><span class="calibre7">3——不支持主要版本；</span><br class="calibre2"/><span class="calibre7">4——不支持次要版本；</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">5——不合适、不允许或非预期的Opcode。</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> F1 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> F1 是重载的——如果报文是一条请求，F1 就是请求端设置的 1 位标记，说明需要响应（F1=1）；如果报文是一条响应，F1 就是一个 1 位标记，用来说明应该将响应作为对整条报文的响应来解释（F1=1），还是将其作为对 Opcode 数据字段的响应来解释（F1=0） </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> RR </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 用来说明报文是请求（RR=0）还是响应（RR=1）的 1 位标记 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 事务ID </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 32 位的值，与请求端的网络地址组合在一起可以唯一地标识 HTCP 事务 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> Opcode 数据 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Opcode 数据与 Opcode 有关。参见表20-7 </span><span class="calibre_18">
+</span></td></tr></table><p class="calibre_">表 20-7 列出了 HTCP Opcode 代码及其相应的数据类型。</p><p class="calibre_"><span class="bold">表20-7　HTCP Opcode</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_62"><span class="calibre7"><span class="bold"> Opcode </span></span>
+</th><th valign="top" class="calibre_215"><span class="calibre7"><span class="bold"> 值 </span></span>
+</th><th valign="top" class="calibre_216"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th><th valign="top" class="calibre_216"><span class="calibre7"><span class="bold"> 响应代码 </span></span>
+</th><th valign="top" class="calibre_66"><span class="calibre7"><span class="bold"> Opcode数据 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> NOP </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 0 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 本质上是一个 ping 操作 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 总是0 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 无 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> TST </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 1 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 如果有实体，就为0，如果没有提供实体，就为1 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 在请求中包含 URL 和请求首部，在响应中只包含响应首部 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> MON </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 2 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 接受就为0，拒绝就为1 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> SET </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 3 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> SET 报文允许缓存请求修改缓存策略。可以用于 SET 报文的首部参见表 20-9 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 接受就为0，忽略就为1 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> CLR </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 4 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 如果曾经有过，但现在没有了，就为0；如果曾经有过，而且现在还有，就为1；如果从未有过，就为 2 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr></table><p class="calibre_"><span class="calibre3"><span class="bold">20.9.1　HTCP认证</span></span></p><p class="calibre_">HTCP 报文的认证部分是可选的。其结构如图 20-15 所示，表 20-8 列出了它的认证组件。</p><p class="calibre_"><span class="bold">表20-8　HTCP认证组件</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_36"><span class="calibre7"><span class="bold"> 组　　件 </span></span>
+</th><th valign="top" class="calibre_45"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 认证部分长度 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 16 位的报文认证部分字节数，包含了长度字段自身的长度 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 签名时间 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 32 位数，表示从格林尼治标准时间 1970 年1 月1 日 00:00:00 开始，到产生签名的时间之间的秒数 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 签名过期时间 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 32 位数，表示从格林尼治标准时间 1970 年1 月1 日 00:00:00 开始，到签名过期时所经历的秒数 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 密钥名称 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 用来表示共享密钥名称的字符串。密钥字段有两个部分：用来说明后面那个字符串长度的 16 位的字节数，后面跟着的字符串是未经解释的字节流 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 签名 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> HMAC-MD5 摘要，它是 B 值为64（表示源 IP 地址和目的 IP 地址及端口）、报文的主要及次要 HTCP 版本、签名时间和签名过期值，完整的 HTCP 数据以及密钥的摘要。签名也包含两个部分：16 位长的字符串字节数，后面跟着这个字符串 </span><span class="calibre_18">
+</span></td></tr></table><p class="calibre_"><span class="calibre3"><span class="bold">20.9.2　设置缓存策略</span></span></p><p class="calibre_">SET 报文允许缓存请求对已缓存文档的缓存策略进行修改。表 20-9 中给出了可以在 SET 报文中使用的首部。</p><p class="calibre_"><span class="bold">表20-9　修改缓存策略的缓存首部列表</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_66"><span class="calibre7"><span class="bold"> 首　　部 </span></span>
+</th><th valign="top" class="calibre_68"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">Cache-Vary </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求端已经知道内容会随一组首部的变化而变化，这组首部与响应 </span><span class="calibre11"><tt class="calibre8">Vary</tt></span><span class="calibre7"> 首部中的那一组不同。这个首部会覆盖响应的 </span><span class="calibre11"><tt class="calibre8">Vary </tt></span><span class="calibre7"> 首部</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">Cache-Location </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 可能有此对象副本的代理缓存的列表 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">Cache-Policy </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 关于此对象的缓存策略，请求端已经了解到的比响应首部中指定的更详细。可能的值包括：</span><span class="calibre11"><tt class="calibre8">no-cache</tt></span><span class="calibre7">，说明响应是不可缓存的，但可以在多个同时发起请求的请求端之间共享；</span><span class="calibre11"><tt class="calibre8">no-share</tt></span><span class="calibre7">，说明对象是不可共享的； </span><span class="calibre11"><tt class="calibre8">no-cachecookie </tt></span><span class="calibre7">，说明内容可能会随 cookie 而发生变化，不推荐缓存</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">Cache-Flags </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 请求端修改了对象的缓存策略，可能要对它进行特别的处理，不一定要根据其实际的策略进行处理 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">Cache-Expiry </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 发送端了解到的文档实际过期时间 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">Cache-MD5 </tt></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 请求端计算出来的对象的 MD5 校验和，可能与 </span><span class="calibre11"><tt class="calibre8">Content-MD5</tt></span><span class="calibre7"> 首部的值有所不同，也可能在对象没有 </span><span class="calibre11"><tt class="calibre8">Content-MD5 </tt></span><span class="calibre7"> 首部的情况下提供</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">Cache-to-Origin </tt></span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求端测量的到原始服务器的往返时间。此首部值的格式为&lt; </span><span class="calibre7"><span class="bold">原始服务器名称或IP 地址</span></span><span class="calibre7"> &gt;&lt; </span><span class="calibre7"><span class="bold">以秒为单位的平均往返时间</span></span><span class="calibre7"> &gt;&lt; </span><span class="calibre7"><span class="bold">采样数</span></span><span class="calibre7"> &gt;&lt; </span><span class="calibre7"><span class="bold">请求端和原始服务器之间的路由器跳数 </span></span><span class="calibre7"> &gt;</span><span class="calibre_18">
+</span></td></tr></table><p class="calibre_">HTCP 允许通过查询报文将请求和响应首部发送给兄弟缓存，这样可以降低缓存查询中的错误命中率。通过进一步允许在兄弟缓存间交换策略信息，HTCP 还可以提 高兄弟缓存之间的合作能力。 </p><div class="mbp_pagebreak" id="calibre_pb_192"></div>
+</body></html>

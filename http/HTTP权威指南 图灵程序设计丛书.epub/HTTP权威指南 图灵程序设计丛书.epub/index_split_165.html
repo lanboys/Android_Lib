@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos1152309" class="calibre_"><span class="calibre3"><span class="bold">17.1　内容协商技术</span></span></p><p class="calibre_">共有 3 种不同的方法可以决定服务器上哪个页面最适合客户端：让客户端来选择、服务器自动判定，或让中间代理来选。这 3 种技术分别称为客户端驱动的协商、服务器驱动的协商以及透明协商（参见表 17-1）。本章，我们将研究每种技术的机制及其优缺点。</p><p class="calibre_"><span class="bold">表17-1　内容协商技术概要</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_34"><span class="calibre7"><span class="bold"> 技　　术 </span></span>
+</th><th valign="top" class="calibre_66"><span class="calibre7"><span class="bold"> 工作原理 </span></span>
+</th><th valign="top" class="calibre_138"><span class="calibre7"><span class="bold"> 优　　点 </span></span>
+</th><th valign="top" class="calibre_66"><span class="calibre7"><span class="bold"> 缺　　点 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 客户端驱动 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 客户端发起请求，服务器发送可选项的列表，客户端选择 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 在服务器端的实现最容易。客户端可以选择最合适的内容 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 增加了时延：为了获得正确的内容，至少要发送两次请求 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 服务器驱动 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 服务器检查客户端的请求首部集并决定提供哪个版本的页面 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 比客户端驱动的协商方式要快。HTTP 提供了 </span><span class="calibre11"><tt class="calibre8">q</tt></span><span class="calibre7"> 值机制，允许服务器近似匹配，还提供了 </span><span class="calibre11"><tt class="calibre8">Vary </tt></span><span class="calibre7"> 首部供服务器告知下游的设备如何对请求估值</span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 如果结论不是很明确（比如首部集不匹配），服务器要做猜测 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 透明 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 某个中间设备（通常是缓存代理）代表客户端进行请求协商 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 免除了 Web 服务器的协商开销。比客户端驱动的协商要快 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 关于如何进行透明协商，还没有正式的规范 </span><span class="calibre_18">
+</span></td></tr></table><div class="mbp_pagebreak" id="calibre_pb_165"></div>
+</body></html>

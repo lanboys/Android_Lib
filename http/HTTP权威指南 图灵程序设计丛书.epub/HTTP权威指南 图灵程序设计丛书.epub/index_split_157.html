@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos1066931" class="calibre_"><span class="calibre3"><span class="bold">16.1　HTTP 对国际性内容的支持</span></span></p><p class="calibre_">HTTP 报文中可以承载以任何语言表示的内容，就像它能承载图像、影片，或任何类型的媒体那样。对 HTTP 来说，实体主体只是二进制信息的容器而已。</p><p class="calibre_">为了支持国际性的内容，服务器需要告知客户端每个文档的字母表和语言，这样客户端才能正确地把文档中的信息解包为字符并把内容呈现给用户。</p><p class="calibre_">服务器通过 HTTP 协议的 <tt class="calibre8">Content-Type</tt> 首部中的 <tt class="calibre8">charset</tt> 参数和 <tt class="calibre8">Content-Language</tt> 首部告知客户端文档的字母表和语言。这些首部描述了实体主体的“信息盒子”里面装的是什么，如何把内容转换成合适的字符以便显示在屏幕上以及里面的词语表示的是哪种语言。</p><p class="calibre_">同时，客户端需要告知服务器用户理解何种语言，浏览器上安装了何种字母表编码算法。客户端发送 <tt class="calibre8">Accept-Charset</tt> 首部和 <tt class="calibre8">Accept-Language</tt> 首部，告知服务器它理解哪些字符集编码算法和语言以及其中的优先顺序。</p><p class="calibre_">下面的 HTTP 报文中的这些 <tt class="calibre8">Accept</tt> 首部可能是母语为法语的人发出的。他喜欢使用母语，但也会说一点儿英语，他的浏览器支持 iso-8859-1 西欧字符集编码和 UTF-8 Unicode 字符集编码：</p><blockquote class="calibre_21"><span class="calibre7"><tt class="calibre8">Accept-Language: fr, en;q=0.8<br class="calibre2"/>Accept-Charset: iso-8859-1, utf-8<br class="calibre2"/></tt></span></blockquote><p class="calibre_22">参数“<tt class="calibre8">q=0.8</tt>”是<span class="bold">质量因子</span>（quality factor），说明英语的优先级（0.8）比法语低（默认值是 1.0）。 </p><div class="mbp_pagebreak" id="calibre_pb_157"></div>
+</body></html>

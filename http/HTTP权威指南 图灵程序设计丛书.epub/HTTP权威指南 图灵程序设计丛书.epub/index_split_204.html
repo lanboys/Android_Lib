@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p class="calibre_"><span class="calibre3"><span class="bold">B.2　状态码</span></span></p><p class="calibre_">表 B-2 是 HTTP/1.1 规范定义的所有状态码的快速参考，表中概述了每种状态码及其含义。3.4 节曾详细地介绍了这些状态码及其用法。</p><p class="calibre_"><span class="bold">表B-2　状态码</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_163"><span class="calibre7"><span class="bold"> 状态码 </span></span>
+</th><th valign="top" class="calibre_69"><span class="calibre7"><span class="bold"> 原因短语 </span></span>
+</th><th valign="top" class="calibre_20"><span class="calibre7"><span class="bold"> 含　　义 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 100 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Continue（继续） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 收到了请求的起始部分，客户端应该继续请求 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 101 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Switching Protocols（切换协议） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 服务器正根据客户端的指示将协议切换成 </span><span class="calibre11"><tt class="calibre8">Update </tt></span><span class="calibre7"> 首部列出的协议</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 200 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> OK </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 服务器已成功处理请求 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 201 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Created（已创建） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 对那些要服务器创建对象的请求来说，资源已创建完毕 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 202 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Accepted（已接受） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求已接受，但服务器尚未处理 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 203 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Non-Authoritative Information（非权威信息） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 服务器已将事务成功处理，只是实体首部包含的信息不是来自原始服务器，而是来自资源的副本 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 204 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> No Content（没有内容） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 响应报文包含一些首部和一个状态行，但不包含实体的主体内容 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 205 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Reset Content（重置内容） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 另一个主要用于浏览器的代码。意思是浏览器应该重置当前页面上所有的HTML 表单 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 206 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Partial Content（部分内容） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 部分请求成功 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 300 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Multiple Choices（多项选择） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 客户端请求了实际指向多个资源的URL。这个代码是和一个选项列表一起返回的，然后用户就可以选择他希望使用的选项了 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 301 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Moved Permanently（永久移除） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求的 URL 已移走。响应中应该包含一个 Location URL，说明资源现在所处的位置 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 302 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Found（已找到） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 与状态码 301 类似，但这里的移除是临时的。客户端应该用 </span><span class="calibre11"><tt class="calibre8">Location </tt></span><span class="calibre7"> 首部给出的 URL 对资源进行临时定位</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 303 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> See Other（参见其他） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 告诉客户端应该用另一个 URL 获取资源。这个新的 URL 位于响应报文的 </span><span class="calibre11"><tt class="calibre8">Location </tt></span><span class="calibre7"> 首部</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 304 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Not Modified（未修改） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 客户端可以通过它们所包含的请求首部发起条件请求。这个代码说明资源未发生过变化 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 305 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Use Proxy（使用代理） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 必须通过代理访问资源，代理的位置是在 </span><span class="calibre11"><tt class="calibre8">Location </tt></span><span class="calibre7"> 首部中给出的</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 306 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> （未用） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 这个状态码当前并未使用 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 307 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Temporary Redirect（临时重定向） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 和状态码 301 类似。但客户端应该用 </span><span class="calibre11"><tt class="calibre8">Location </tt></span><span class="calibre7"> 首部给出的 URL 对资源进行临时定位</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 400 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Bad request（坏请求） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 告诉客户端它发送了一条异常请求 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 401 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Unauthorized（未授权） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 与适当的首部一起返回，在客户端获得资源访问权之前，请它进行身份认证 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 402 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Payment Required（要求付款） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 当前此状态码并未使用，是为未来使用预留的 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 403 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Forbidden（禁止） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 服务器拒绝了请求 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 404 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Not Found（未找到） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 服务器无法找到所请求的URL </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 405 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Method Not Allowed（不允许使用的方法） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求中有一个所请求的URI 不支持的方法。响应中应该包含一个 </span><span class="calibre11"><tt class="calibre8">Allow </tt></span><span class="calibre7"> 首部，以告知客户端所请求的资源支持使用哪些方法</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 406 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Not Acceptable（无法接受） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 客户端可以指定一些参数来说明希望接受哪些类型的实体。服务器没有资源与客户端可接受的 URL 相匹配时可使用此代码 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 407 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Proxy Authentication Required（要求进行代理认证） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 和状态码 401 类似，但用于需要进行资源认证的代理服务器 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 408 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Request Timeout（请求超时） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 如果客户端完成其请求时花费的时间太长，服务器可以回送这个状态码并关闭连接 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 409 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Conflict（冲突） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 发出的请求在资源上造成了一些冲突 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 410 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Gone（消失了） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 除了服务器曾持有这些资源之外，与状态码 404 类似 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 411 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Length Required（要求长度指示） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 服务器要求在请求报文中包含 </span><span class="calibre11"><tt class="calibre8">Content-Length</tt></span><span class="calibre7"> 首部时会使用这个代码。发起的请求中若没有 </span><span class="calibre11"><tt class="calibre8">Content-Length </tt></span><span class="calibre7"> 首部，服务器是不会接受此资源请求的</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 412 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Precondition Failed（先决条件失败） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 如果客户端发起了一个条件请求，如果服务器无法满足其中的某个条件，就返回这个响应码 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 413 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Request Entity Too Large（请求实体太大） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 客户端发送的实体主体部分比服务器能够或者希望处理的要大 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 414 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Request URI Too Long（ 请求URI 太长） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 客户端发送的请求所携带的请求 URL 超过了服务器能够或者希望处理的长度 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 415 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Unsupported Media Type（不支持的媒体类型） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 服务器无法理解或不支持客户端所发送的实体的内容类型 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 416 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Requested Range Not Satisfiable（所请求的范围未得到满足） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 请求报文请求的是某范围内的指定资源，但那个范围无效，或者未得到满足 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 417 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Expectation Failed（无法满足期望） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求的 </span><span class="calibre11"><tt class="calibre8">Expect </tt></span><span class="calibre7"> 首部包含了一个预期内容，但服务器无法满足</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 500 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Internal Server Error（内部服务器错误） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 服务器遇到了一个错误，使其无法为请求提供服务 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 501 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Not Implemented（未实现） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 服务器无法满足客户端请求的某个功能 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 502 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Bad Gateway（网关故障） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 作为代理或网关使用的服务器遇到了来自响应链中上游的无效响应 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 503 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> Service Unavailable（未提供此服务） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 服务器目前无法为请求提供服务，但过一段时间就可以恢复服务 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 504 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Gateway Timeout（网关超时） </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 与状态码 408 类似，但是响应来自网关或代理，此网关或代理在等待另一台服务器的响应时出现了超时 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 505 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> HTTP Version Not Supported（不支持的 HTTP 版本） </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 服务器收到的请求是以它不支持或不愿支持的协议版本表示的 </span><span class="calibre_18">
+</span></td></tr></table><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><div class="mbp_pagebreak" id="calibre_pb_204"></div>
+</body></html>

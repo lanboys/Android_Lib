@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos593379" class="calibre_"><span class="calibre3"><span class="bold">8.4　应用程序接口和 Web 服务</span></span></p><p class="calibre_">我们已经讨论过可以将资源网关作为 Web 服务器与应用程序的通信方式使用。更广泛地说，随着 Web 应用程序提供的服务类型越来越多，有一点变得越来越清晰了： HTTP 可以作为一种连接应用程序的基础软件来使用。在将应用程序连接起来的过程中，一个更为棘手的问题是在两个应用程序之间进行协议接口的协商，以便这些应用程序可以进行数据的交换——这通常都是针对具体应用程序的个案进行的。</p><p class="calibre_">应用程序之间要配合工作，所要交互的信息比 HTTP 首部所能表达的信息要复杂得多。 第 19 章描述了几个用于交换定制信息的扩展 HTTP 或 HTTP 上层协议实例。19.1 节介绍的是在 HTTP POST 报文之上建立 RPC 层，19.2 节介绍的是向 HTTP 首 部添加 XML 的问题。</p><p class="calibre_">因特网委员会开发了一组允许 Web 应用程序之间相互通信的标准和协议。尽管 <span class="bold">Web 服务</span>（Web service）可以用来表示独立的 Web 应用程序（构造模块），这里我们还是宽松地用这个术语来表示这些标准。Web 服务的引入并不新鲜，但这是应用程序共享信息的一种新机制。Web 服务是构建在标准的 Web 技术（比如 HTTP）之上的。</p><p class="calibre_">Web 服务可以用 XML 通过 SOAP 来交换信息。XML（Extensible Markup Language，扩展标记语言）提供了一种创建数据对象的定制信息，并对其进行解释的方法。SOAP（Simple Object Access Protocol，简单对象访问协议）是向 HTTP 报文中添加 XML 信息的标准方式。<sup class="calibre4"><small class="calibre5"><span class="calibre6">1</span></small></sup></p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">1 更多信息，请参见 </span><a href="http://www.w3.org/TR/2001/WD-soap12-part0-20011217/"><span class="calibre6">http://www.w3.org/TR/2001/WD-soap12-part0-20011217/</span></a><span class="calibre6">。Doug Tidwell、James Snell 和 Pavel Kulchenko 编写的 </span><span class="calibre6"><span class="italic">Programming Web Services with SOAP</span></span><span class="calibre6">（SOAP Web 服务开发）一书（O'Reilly） 也是非常好的 SOAP 协议信息资源。</span></small></sup></p><div class="mbp_pagebreak" id="calibre_pb_87"></div>
+</body></html>

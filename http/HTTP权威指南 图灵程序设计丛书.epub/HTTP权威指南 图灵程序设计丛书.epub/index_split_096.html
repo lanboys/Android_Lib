@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos700411" class="calibre_"><span class="calibre3"><span class="bold">9.5　机器人的规范</span></span></p><p class="calibre_">1993 年，Web 机器人社会的先驱 Martijn Koster 为 Web 机器人的编写者们编写了一个指南列表。有些建议已经过时了，但有很多建议仍然非常有用。在 <a href="http://www.robotstxt.org/wc/guidelines.html">http://www.robotstxt.org/wc/guidelines.html</a> 上可以找到 Martijn 的原始论文“Guidelines for Robot Writers”。</p><p class="calibre_">表 9-6 是为机器人设计者和操作人员提供的现代更新，这些更新的建议主要还是建立在原始列表的思想和内容之上的。大部分指南都是针对万维网机器人提出的；但它们同样适用于较小规模的爬虫。</p><p class="calibre_"><span class="bold">表9-6　Web机器人操作员指南</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_70"><span class="calibre7"><span class="bold"> 操作指南  </span></span></th><th valign="top" class="calibre_44"><span class="calibre7"><span class="bold"> 描　　述  </span></span></th></tr><tr valign="top" class="calibre_17"><td colspan="2" valign="top" class="calibre10"><span class="calibre7"> 1. 识别 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 识别你的机器人 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 用 HTTP 的 </span><span class="calibre11"><tt class="calibre8">User-Agent</tt></span><span class="calibre7"> 字段将机器人的名字告诉 Web 服务器。这样可以帮助管理员理解机器人所做的事情。有些机器人还会在 </span><span class="calibre11"><tt class="calibre8">User-Agent </tt></span><span class="calibre7"> 首部包含一个描述机器人目的和策略的 URL</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 识别你的机器 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 确保机器人是从一台带有 DNS 条目的机器上运行的，这样 Web 站点才能够将机器人的 IP 地址反向 DNS 为主机名。这有助于管理者识别出对机器人负责的组织 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 识别联络人 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 用 HTTP 的 </span><span class="calibre11"><tt class="calibre8">From </tt></span><span class="calibre7"> 字段提供一个联络的 E-mail 地址</span>
+</td></tr><tr valign="top" class="calibre_17"><td colspan="2" valign="top" class="calibre10"><span class="calibre7"> 2. 操作 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 保持警惕 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 机器人可能会惹一些麻烦或引发一些抱怨。其中一些是由那些行为有偏差的机器人造成的。一定要小心，注意保持机器人的正常行为。如果机器人要全天候运行，就要格外小心。需要有操作人员不间断地对机器人进行监视，直到它有了丰富的经验为止 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 做好准备 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 开始一次重要的机器人之旅时，一定要通知你所在的组织。你的组织可能要观测网络带宽的耗费，作好应对各种公共查询的准备 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 监视并记录日志 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 机器人应该装备有丰富的诊断和日志记录工具，这样才能记录进展、识别所有的机器人陷阱，进行完整性检查看看工作是否正常。监视并记录机器人行为的重要性怎么强调也不过分。问题和抱怨总是会有的，对爬虫行为的详细记录，有助于机器人操作者回溯所发生的事情。不管是为了调试出错的 Web 爬虫，还是为了在不合理的投诉面前为其行为进行辩护，监视和记录工作都是非常重要的 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 学习并适应 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 在每次爬行中你都会学到新的东西。要让机器人逐步适应，这样，它在每次爬行之后都会有所进步，并能避开一些常见的陷阱 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td colspan="2" valign="top" class="calibre10"><span class="calibre7"> 3. 约束自己的行为 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 对 URL 进行过滤 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 如果一个 URL 指向的好像是你不理解或不感兴趣的数据，你可能会希望跳过它。比如，以.Z、.gz、.tar 或者 .zip 结尾的 URL 很可能是压缩文件或归档文件。以 .exe 结尾的 URL 可能就是程序。以.gif、.tif、.jpg 结尾的 URL 很可能是图片。要确保你得到的就是你想要的 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 过滤动态 URL </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 通常，机器人不会想去爬行来自动态网关的内容。机器人不知道应该如何正确地格式化查询请求，并将其发送给网关，而它得到的结果也很可能是错误的或临时的。如果一个 URL 中包含了cgi，或者有一个“?”，机器人可能就不会去爬行这个 URL 了 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 对 </span><span class="calibre11"><tt class="calibre8">Accept </tt></span><span class="calibre7"> 首部进行过滤</span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 机器人应该用 HTTP 的 </span><span class="calibre11"><tt class="calibre8">Accept </tt></span><span class="calibre7"> 首部来告诉服务器它能够理解哪种内容</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 遵循 robots.txt </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 机器人应该接受站点上 robots.txt 的控制 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 制约自己 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 机器人应该记录访问每个站点的次数以及访问的时间，并通过这些信息来确保它没有太频繁地访问某个站点。机器人访问站点的频率高于几分钟一次时，管理员就要起疑心了。机器人每隔几秒钟就访问一次站点时，有些管理员就会生气了。机器人尽可能频繁地去访问一个站点，将所有其他流量都拒之门外时，管理员就会暴怒起来。</span><br class="calibre2"/><span class="calibre7"> </span><span class="calibre7">总之，应该限制机器人，使其每分钟最多只发送几条请求，并确保每条请求之间有几秒钟的间隔。还应该限制对站点的访问总次数，以防止环路的出现</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td colspan="2" valign="top" class="calibre10"><span class="calibre7"> 4. 容忍存在环路、重复和其他问题 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 处理所有返回代码 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 必须做好处理所有 HTTP 状态码的准备，包括各种重定向和错误码。还应该对这些代码进行记录和监视。如果某站点出现大量不成功的结果，就应该对其进行调查。可能是很多 URL 过期了，或者服务器拒绝向机器人提供这些文档 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 规范 URL </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 试着将所有 URL 都转化为标准形式来消除常见的别名 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 积极地避免环路的出现 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 努力地检测并避免环路的出现。将操纵爬虫的过程当作一个反馈回路。应该将问题的结果和解决方法回馈到下一次爬行中，使爬虫在每次迭代之后都能表现得更好 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 监视陷阱 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 有些环路是故意造成的恶意环路。这些环路可能很难检测。有的站点会带有一些怪异的URL，要监视对这类站点进行的大量访问。这种情况可能就是陷阱 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 维护一个黑名单 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 找到陷阱、环路、故障站点和不希望机器人访问的站点时，要将其加入一个黑名单，不要再次访问这些站点 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td colspan="2" valign="top" class="calibre10"><span class="calibre7"> 5. 可扩展性 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7">  </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 了解所需空间 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 事先通过数学计算明确你要解决的问题规模有多大。你可能会对应用程序完成一项机器人任务所需的内存规模感到非常吃惊，这是由 Web 庞大的规模造成的 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 了解所需带宽 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 了解你有多少网络带宽可用，以及在要求的时间内完成机器人任务所需的带宽大小。监视网络带宽的实际使用情况。你很可能会发现输出带宽（请求）要比输入带宽（响应）小得多。通过对网络使用情况的监视，可能还会找到一些方法来更好地优化你的机器人，通过更好地使用其 TCP 连接更好地利用网络带宽<sup class="calibre14"><small class="calibre5"><span class="calibre13">1 </span></small></sup></span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 了解所需的时间 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 了解机器人完成其任务所需花费的时间，检查这个进度是否与自己的估计相符。如果机器人的耗费与自己的估计相去甚远，可能就会有问题，需要进行调查 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 分而治之 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 对大规模的爬行来说，很可能需要使用更多的硬件来完成这项工作，可以使用带有多个网卡的大型多处理器服务器，也可以使用多台较小的计算机共同配合工作 </span>
+</td></tr><tr valign="top" class="calibre_17"><td colspan="2" valign="top" class="calibre10"><span class="calibre7"> 6. 可靠性 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 彻底测试 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 在将机器人放出去之前，要对其进行彻底的内部测试。作好非现场测试准备时，要先进行几次小型的处女航。收集大量结果并对性能和内存使用情况进行分析，估计一下它们会怎样累积成较大问题 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 检查点 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 所有严谨的机器人都要保存其进展的快照，出现故障时可以从那里重新开始。故障总是存在的：你会发现一些软件的bug，硬件也会出故障。大规模机器人不能在每次出现这种情况时都从头开始。一开始就要设计检查点/重启机制 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 故障恢复 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 预测故障的发生，对机器人进行设计，使其能够在发生故障时继续工作 </span>
+</td></tr><tr valign="top" class="calibre_17"><td colspan="2" valign="top" class="calibre10"><span class="calibre7"> 7. 公共关系 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7">  </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 做好准备 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 机器人可能会让很多人感到困惑。要作好快速响应其询问的准备。制定一个 Web 页面政策声明，对机器人进行描述，其中包括创建 robots.txt 文件的详细指南 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> 充分理解 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 有些与你联系，讨论机器人问题的人是了解情况并赞成的，有些人则很幼稚。少数人会异常愤怒。有些人看起来好像都要发疯了。去争辩机器人的努力有多么重要通常是没什么效果的。向他们解释拒绝机器人访问标准，如果他们仍然很不高兴，就立即将投诉者的 URL 从爬行列表中删除，并将其加入黑名单 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> 积极响应 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 大多数不满意的网管都只是不太了解机器人。如果你能够进行迅速且专业的响应，90% 的投诉都会很快消失。另一方面，如果你等好几天才响应，而机器人在继续访问这个站点，你面对的就将是一个非常愤怒的对手 </span>
+</td></tr></table><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">1 更多有关 TCP 性能优化的内容请参见第 4 章。</span></small></sup></p><div class="mbp_pagebreak" id="calibre_pb_96"></div>
+</body></html>

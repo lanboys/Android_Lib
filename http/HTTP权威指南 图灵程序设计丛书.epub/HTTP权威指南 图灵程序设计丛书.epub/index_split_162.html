@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos1143805" class="calibre_"><span class="calibre3"><span class="bold">16.6　其他需要考虑的地方</span></span></p><p class="calibre_">本节讨论在编写国际化的 HTTP 应用程序时，必须牢记的其他一些东西。</p><p class="calibre_"><span class="calibre3"><span class="bold">16.6.1　首部和不合规范的数据</span></span></p><p class="calibre_">HTTP 首部必须由 US-ASCII 字符集中的字符构成。不过，并不是所有的客户端和服务器都正确地实现了这一点，你可能会时不时收到一些代码值大于 127 的非法字符。</p><p class="calibre_">很多 HTTP 应用程序使用操作系统和库例程来处理字符（比如 Unix 中的字符分类库 ctype），但不是所有这些库都支持 ASCII 范围（0 ～ 127）之外的字符代码。</p><p class="calibre_">在某些情况下（一般来说，是较老的实现），当输入非 ASCII 字符时，这些库可能会返回不正确的结果，或者使应用程序崩溃。假设报文中含有非法数据，在使用这些字符分类库来处理 HTTP 报文之前，要仔细阅读它们的文档。</p><p class="calibre_"><span class="calibre3"><span class="bold">16.6.2　日期</span></span></p><p class="calibre_">HTTP 的规范中明确定义了合法的 GMT 日期格式，但要知道并非所有 Web 服务器和客户端都遵守这些规则。例如，我们曾见过 Web 服务器发送的无效 HTTP Date （日期）首部中的月份是用本地语言表示的。</p><p class="calibre_">HTTP 应用程序应当尝试容忍一些不合规矩的日期，不能在接收的时候崩溃。不过也不是所有发送出来的日期都能被正确解释，如果日期无法解析，服务器应当谨慎处理。</p><p class="calibre_"><span class="calibre3"><span class="bold">16.6.3　域名</span></span></p><p class="calibre_">DNS 目前还不支持在域名中使用国际化的字符。现在正在进行支持多语言的域名的相关标准化工作，但还没有被广泛部署。 </p><div class="mbp_pagebreak" id="calibre_pb_162"></div>
+</body></html>

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos394467" class="calibre_"><span class="calibre3"><span class="bold">5.9　第六步——发送响应</span></span></p><p class="calibre_">Web 服务器通过连接发送数据时也会面临与接收数据一样的问题。服务器可能有很多条到各个客户端的连接，有些是空闲的，有些在向服务器发送数据，还有一些在向客户端回送响应数据。</p><p class="calibre_">服务器要记录连接的状态，还要特别注意对持久连接的处理。对非持久连接而言，服务器应该在发送了整条报文之后，关闭自己这一端的连接。</p><p class="calibre_">对持久连接来说，连接可能仍保持打开状态，在这种情况下，服务器要特别小心，要正确地计算 <tt class="calibre8">Content-Length</tt> 首部，不然客户端就无法知道响应什么时候结束了（参见第 4 章）。 </p><div class="mbp_pagebreak" id="calibre_pb_56"></div>
+</body></html>

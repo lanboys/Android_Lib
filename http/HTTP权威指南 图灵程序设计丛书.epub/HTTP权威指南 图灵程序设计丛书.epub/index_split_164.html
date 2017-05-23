@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos1150632" class="calibre_"><span class="calibre1"><span class="bold">第17章　内容协商与转码</span></span></p><p class="calibre_">一个 URL 常常需要代表若干不同的资源。例如那种需要以多种语言提供其内容的网站站点。如果某个站点（比如 Joe 的五金商店这样的站点）有说法语的和说英语的两种用户，它可能想用这两种语言提供网站站点信息。但在这种情况下，当用户请求 <a href="http://www.joes-hardware.com">http://www.joes-hardware.com</a> 时，服务器应当发送哪种版本呢？法文版还是英文版？</p><p class="calibre_">理想情况下，服务器应当向英语用户发送英文版，向法语用户发送法文版——用户只要访问 Joe 的五金商店的主页就可以得到相应语言的内容。幸运的是，HTTP 提供了<span class="bold">内容协商</span>方法，允许客户端和服务器作这样的决定。通过这些方法，单一的 URL 就可以代表不同的资源（比如，同一个网站页面的法语版和英语版）。这些不同的版本称为<span class="bold">变体</span>。</p><p class="calibre_">对于特定的 URL 来说，服务器还可以根据其他原则来决定发送什么内容给客户端最合适。在有些场合下，服务器甚至可以自动生成定制的页面。比如，服务器可以为手持设备把 HTML 页面转换成 WML 页面。这类动态内容变换被称为转码。这些变换动作是 HTTP 客户端和服务器之间进行内容协商的结果。</p><p class="calibre_">本章，我们将讨论内容协商和网站应用程序应该如何担负内容协商的责任。 </p><div class="mbp_pagebreak" id="calibre_pb_164"></div>
+</body></html>

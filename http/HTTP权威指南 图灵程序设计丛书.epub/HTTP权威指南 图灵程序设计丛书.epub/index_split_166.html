@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos1155118" class="calibre_"><span class="calibre3"><span class="bold">17.2　客户端驱动的协商</span></span></p><p class="calibre_">对于服务器来说，收到客户端请求时只是发回响应，在其中列出可用的页面，让客户端决定要看哪个，这是最容易的事情。很显然，这是服务器最容易实现的方式，而且客户端很可能选择到最佳的版本（只要列表中有让客户端选择的足够信息）。不利之处是每个页面都需要两次请求：第一次获取列表，第二次获取选择的副本。这种技术速度很慢且过程枯燥乏味，让用户厌烦。</p><p class="calibre_">从实现原理上来说，服务器实际上有两种方法为客户端提供选项：一是发送回一个 HTML 文档，里面有到该页面的各种版本的链接和每个版本的描述信息；另一种方法是发送回 HTTP/1.1 响应时，使用 300 Multiple Choices 响应代码。客户端浏览器收到这种响应时，在前一种情况下，会显示一个带有链接的页面；在后一种情况下，可能会弹出对话窗口，让用户做选择。不管怎么样，决定是由客户端的浏览器用户作出的。</p><p class="calibre_">除了增加时延并且对每个页面都要进行繁琐的多次请求之外，这种方法还有一个缺点：它需要多个URL：公共页面要一个，其他每种特殊页面也都要一个。因此，比如说原始的请求地址是 <a href="http://www.joes-hardware.com">www.joes-hardware.com</a>，Joe 的服务器可能会回复某个页面，该页面里面有到 <a href="http://www.joes-hardware.com/english">www.joes-hardware.com/english</a> 和 <a href="http://www.joes-hardware.com/french">www.joes-hardware.com/french</a> 的链接。如果客户端想加书签的话，是要加在原始的公共页面上呢，还是加在选中的页面上呢？如果用户想把这个网站推荐给他的朋友，是告知 <a href="http://www.joeshardware.com">www.joeshardware.com</a> 这个地址好呢，还是只告诉他们讲英语的朋友 <a href="http://www.joes-hardware.com/english">www.joes-hardware.com/english</a> 这个地址？ </p><div class="mbp_pagebreak" id="calibre_pb_166"></div>
+</body></html>

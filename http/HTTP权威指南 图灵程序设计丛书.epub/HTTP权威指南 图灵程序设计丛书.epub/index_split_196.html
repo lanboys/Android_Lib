@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='utf-8'?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>HTTP权威指南 (图灵程序设计丛书)</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <link href="stylesheet.css" rel="stylesheet" type="text/css"/>
+<link href="page_styles.css" rel="stylesheet" type="text/css"/>
+</head>
+  <body class="calibre">
+<p id="filepos1403801" class="calibre_"><span class="calibre3"><span class="bold">21.2　日志格式</span></span></p><p class="calibre_">目前已有一些日志格式的标准了。本节我们会讨论一些最常见的日志格式。大部分商用和开源的 HTTP 应用程序都支持以一种或多种常用格式进行日志记录。很多这样的应用程序都支持管理者配置日志格式，创建自定义的格式。</p><p class="calibre_">应用程序支持管理者使用这些更标准的格式的主要好处之一就在于，可以充分利用那些已构建好的工具处理这些日志，并产生基本的统计信息。有很多开源包和商用包都可用来压缩日志，以进行汇报。使用标准格式，应用程序及其管理员就都可以利用这些包了。</p><p class="calibre_"><span class="calibre3"><span class="bold">21.2.1　常见日志格式</span></span></p><p class="calibre_">现在，最常见的日志格式之一就是<span class="bold">常用日志格式</span>。这种日志格式最初由 NCSA 定义，很多服务器在默认情况下都会使用这种日志格式。可以将大部分商用及开源服务器配置为使用这种格式，有很多商用及免费工具都可辅助解析常用日志格式的文 件。表 21-1 按序列出了常用日志格式中的字段。</p><p class="calibre_"><span class="bold">表21-1　常用日志格式字段</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_36"><span class="calibre7"><span class="bold"> 字　　段 </span></span>
+</th><th valign="top" class="calibre_45"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> remotehost </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求端机器的主机名或 IP 地址（如果没有配置服务器去执行反向 DNS 或无法查找请求端的主机名，就使用 IP 地址） </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> username </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 如果执行了 ident 查找，就是请求端已认证的用户名<sup class="calibre14"><small class="calibre5"><span class="calibre13">a </span></small></sup></span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> auth-username </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 如果进行了认证，就是请求端已认证的用户名 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> timestamp </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 请求的日期和时间 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> request-line </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 精确的 HTTP 请求行文本， GET /index.html HTTP/1.1 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> response-code </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 响应中返回的 HTTP 状态码 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> response-size </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 响应主体中的 </span><span class="calibre11"><tt class="calibre8">Content-Length </tt></span><span class="calibre7">，如果响应中没有返回主体，就记录0</span><span class="calibre_18">
+</span></td></tr></table><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">a：RFC 931 描述了在此认证中使用的 ident 查找。ident 协议是在第 5 章介绍的。</span></small></sup></p><p class="calibre_">例 21-1 列出了几个常见日志格式条目。</p><blockquote class="calibre_21"><span class="bold">例 21-1</span>　常见日志格式</blockquote><blockquote class="calibre_21"><span class="calibre7"><tt class="calibre8">209.1.32.44 - - [03/Oct/1999:14:16:00 -0400] "GET / HTTP/1.0" 200 1024<br class="calibre2"/>http-guide.com - dg [03/Oct/1999:14:16:32 -0400] "GET / HTTP/1.0" 200 477<br class="calibre2"/>http-guide.com - dg [03/Oct/1999:14:16:32 -0400] "GET /foo HTTP/1.0" 404 0<br class="calibre2"/></tt></span></blockquote><p class="calibre_22">在这些例子中，字段的分配如下所示。</p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_36"><span class="calibre7"><span class="bold"> 字段1 </span></span>
+</th><th valign="top" class="calibre_207"><span class="calibre7"><span class="bold"> 条目1 </span></span>
+</th><th valign="top" class="calibre_207"><span class="calibre7"><span class="bold"> 条目2 </span></span>
+</th><th valign="top" class="calibre_206"><span class="calibre7"><span class="bold"> 条目2 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> remotehost </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 209.1.32.44 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> http-guide.com </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> http-guide.com </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> username </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> &lt; 空 &gt; </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> &lt; 空 &gt; </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> &lt; 空 &gt; </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> auth-username </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> &lt; 空 &gt; </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> dg </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> dg </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> timestamp </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 03/Oct/1999:14:16:00 -0400 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 03/Oct/1999:14:16:32 -0400 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 03/Oct/1999:14:16:32 -0400 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> request-line </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> GET / HTTP/1.0 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> GET / HTTP/1.0 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> GET /foo HTTP/1.0 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> response-code </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 200 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 200 </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 404 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> response-size </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 1024 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 477 </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 0 </span><span class="calibre_18">
+</span></td></tr></table><p class="calibre_">注意，remotehost 字段可以是 http-guide.com 那样的主机名，也可以是 209.1.32.44 这样的 IP 地址。</p><p class="calibre_">第二个（username）和第三个（auth-username）字段之间的破折号说明字段为空。这说明要么是没有进行 ident 查找（第二个字段为空），要么是没有进行认证（第三个字段为空）。</p><p class="calibre_"><span class="calibre3"><span class="bold">21.2.2　组合日志格式</span></span></p><p class="calibre_">另一种常用日志格式为组合日志格式（Combined Log Format），例如 Apache 服务器就支持这种格式。组合日志格式与常用日志格式很类似。实际上，它就是常用日志格式的精确镜像，只是添加了（表 21-2 中列出的）两个字段。User-Agent 字段用于说明是哪个 HTTP 客户端应用程序在发起已被记录的请求，而 Referer 字段则提供了更多与请求端在何处找到这个 URL 的有关信息。</p><p class="calibre_"><span class="bold">表21-2　新加的组合日志格式字段</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_20"><span class="calibre7"><span class="bold"> 字　　段 </span></span>
+</th><th valign="top" class="calibre_20"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> Referer </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">Referer </tt></span><span class="calibre7"> 首部的内容</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> User-Agent </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">User-Agent </tt></span><span class="calibre7"> 首部的内容</span>
+</td></tr></table><p class="calibre_">例 21-2 给出了一个组合日志格式的条目。</p><blockquote class="calibre_21"><span class="bold">例 21-2</span>　组合日志格式</blockquote><blockquote class="calibre_21"><span class="calibre7"><tt class="calibre8">209.1.32.44 - - [03/Oct/1999:14:16:00 -0400] "GET / HTTP/1.0" 200 1024<br class="calibre2"/>"http://www.joes-hardware.com/"  "5.0: Mozilla/4.0 (compatible; MSIE<br class="calibre2"/>5.0; Windows 98)"<br class="calibre2"/></tt></span></blockquote><p class="calibre_22">在例 21-2 中，Referer 字段和 User-Agent 字段的值如下所示。</p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_70"><span class="calibre7"><span class="bold"> 字　　段 </span></span>
+</th><th valign="top" class="calibre_44"><span class="calibre7"><span class="bold"> 值 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> Referer </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.joes-hardware.com/"><span class="calibre7">http://www.joes-hardware.com/ </span></a><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> User-Agent </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><span class="calibre11"><tt class="calibre8">5.0: Mozilla/4.0 </tt></span><span class="calibre7">（兼容的，MSIE 5.0，Windows 98）</span>
+</td></tr></table><p class="calibre_">例 21-2 的组合日志格式条目示例中的前七个字段和常用日志格式中的完全一样（参见例 21-1 中的第一个条目）。两个新字段 Referer 和 User-Agent 附加在日志条目的末尾。</p><p class="calibre_"><span class="calibre3"><span class="bold">21.2.3　网景扩展日志格式</span></span></p><p class="calibre_">网景进入商用 HTTP 应用程序领域时，为其服务器定义了很多其他 HTTP 应用程序开发者已接纳的日志格式。网景的格式是基于 NCSA 的常用日志格式的，但它们扩展了该格式，以支持与代理和 Web 缓存这样的 HTTP 应用程序相关的字段。</p><p class="calibre_">网景扩展日志格式的前 7 个字段与常用日志格式中的那些字段完全相同（参见表 21-1）。表 21-3 按序列出了网景扩展日志格式引入的新字段。</p><p class="calibre_"><span class="bold">表21-3　网景扩展日志格式新加的字段</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_70"><span class="calibre7"><span class="bold"> 字　　段 </span></span>
+</th><th valign="top" class="calibre_44"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> proxy-response-code </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 如果事务处理经过了某个代理，就是从服务器传往代理的 HTTP 响应码 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> proxy-response-size </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 如果事务处理经过了某个代理，就是发送给代理的服务器响应实体的</span><span class="calibre11"><tt class="calibre8">Content-Length </tt></span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> client-request-size </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 发给代理的客户端请求的所有主体或实体的</span><span class="calibre11"><tt class="calibre8">Content-Length </tt></span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> proxy-request-size </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 如果事务处理经过了某个代理，就是代理发往服务器的请求的所有主体或实体的</span><span class="calibre11"><tt class="calibre8">Content-Length </tt></span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> client-request-hdr-size </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 以字节为单位的客户端请求首部的长度 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> proxy-response-hdr-size </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 如果事务处理经过了某个代理，就是以字节为单位的、发送给请求端的代理响应首部的长度 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> proxy-request-hdr-size </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 如果事务处理经过了某个代理，就是以字节为单位的、发送给服务器的代理请求首部的长度 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> server-response-hdr-size </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 以字节为单位的，服务器响应首部的长度 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> proxy-timestamp </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 如果事务处理经过了某个代理，就是请求和响应经过代理传输所经过的时间（单位为秒） </span><span class="calibre_18">
+</span></td></tr></table><p class="calibre_">例 21-3 给出了一个网景扩展日志格式的条目。</p><blockquote class="calibre_21"><span class="bold">例 21-3</span>　网景扩展日志格式</blockquote><blockquote class="calibre_21"><span class="calibre7"><tt class="calibre8">209.1.32.44 - - [03/Oct/1999:14:16:00-0400] "GET / HTTP/1.0" 200 1024<br class="calibre2"/>200 1024 0 0 215 260<br class="calibre2"/>279 254 3<br class="calibre2"/></tt></span></blockquote><p class="calibre_22">在这个例子中，扩展字段的值如下所示。</p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_20"><span class="calibre7"><span class="bold"> 字　　段 </span></span>
+</th><th valign="top" class="calibre_20"><span class="calibre7"><span class="bold"> 值 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> proxy-response-code </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 200 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> proxy-response-size </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 1024 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> client-request-size </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 0 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> proxy-request-size </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 0 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> client-request-hdr-size </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 215 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> proxy-response-hdr-size </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 260 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> proxy-request-hdr-size </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 279 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> server-response-hdr-size </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 254 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> proxy-timestamp </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 3 </span><span class="calibre_18">
+</span></td></tr></table><p class="calibre_">例 21-3 中网景扩展日志格式条目示例中的前 7 个字段是常用日志格式条目示例的镜像（参见例 21-1 中的第一个条目）。</p><p class="calibre_"><span class="calibre3"><span class="bold">21.2.4　网景扩展2日志格式</span></span></p><p class="calibre_">另一种网景日志格式，网景扩展 2 日志格式采用了扩展日志格式，并添加了一些与 HTTP 代理和 Web 缓存应用程序有关的附加信息。这些附加字段有助于更好地描绘 HTTP 客户端和 HTTP 代理应用程序间的交互图景。</p><p class="calibre_">网景扩展 2 日志格式是基于网景扩展日志格式的，初始字段与表 21-3 中列出的字段完全相同（它也是表 21-1 中常用日志格式字段的扩展）。</p><p class="calibre_">表 21-4 按序列出了网景扩展 2 日志格式新加的字段。</p><p class="calibre_"><span class="bold">表21-4　附加的网景扩展2日志格式字段</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_70"><span class="calibre7"><span class="bold"> 字　　段 </span></span>
+</th><th valign="top" class="calibre_44"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> route </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 代理用来向客户端发送请求的路径（参见表21-5） </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> client-finish-status-code </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 客户端完成状态码。说明了发送给代理的客户端请求是成功完成（FIN）了，还是被打断了（INTR） </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> proxy-finish-status-code </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 代理完成状态码。说明代理发送给服务器的请求是成功完成（FIN）了，还是被打断了（INTR） </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> cache-result-code </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 缓存结果代码；说明缓存是如何响应请求的<sup class="calibre14"><small class="calibre5"><span class="calibre13">a </span></small></sup></span>
+</td></tr></table><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">a：表 21-7 列出了网景的缓存结果代码。</span></small></sup></p><p class="calibre_">例 21-4 给出了一个网景扩展 2 日志格式的条目。</p><blockquote class="calibre_21"><span class="bold">例 21-4</span>　网景扩展 2 日志格式</blockquote><blockquote class="calibre_21"><span class="calibre7"><tt class="calibre8">209.1.32.44 - - [03/Oct/1999:14:16:00-0400] "GET / HTTP/1.0" 200 1024<br class="calibre2"/>200 1024 0 0 215 260<br class="calibre2"/>279 254 3 DIRECT FIN FIN WRITTEN<br class="calibre2"/></tt></span></blockquote><p class="calibre_22">这个例子中扩展字段的值如下所示。</p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_20"><span class="calibre7"><span class="bold"> 字　　段 </span></span>
+</th><th valign="top" class="calibre_20"><span class="calibre7"><span class="bold"> 值 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> route </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> DIRECT </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> client-finish-status-code </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> FIN </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> proxy-finish-status-code </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> FIN </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> cache-result-code </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> WRITTEN </span>
+</td></tr></table><p class="calibre_">例 21-4 的网景扩展 2 日志格式条目中的前 16 个字段就是网景扩展日志格式示例条目的镜像（参见例 21-3）。</p><p class="calibre_">表 21-5 列出了有效的网景路由代码。</p><p class="calibre_"><span class="bold">表21-5　网景路由代码</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_69"><span class="calibre7"><span class="bold"> 值 </span></span>
+</th><th valign="top" class="calibre_61"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> DIRECT </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 资源是直接从服务器上获取的 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> PROXY(host:port) </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 资源是通过代理“host:port”获取的 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> SOCKS(socks:port) </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 资源是通过 SOCKS 服务器“host:port”获取的 </span><span class="calibre_18">
+</span></td></tr></table><p class="calibre_">表 21-6 列出了有效的网景完成代码。</p><p class="calibre_"><span class="bold">表21-6　网景完成状态码</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_20"><span class="calibre7"><span class="bold"> 值 </span></span>
+</th><th valign="top" class="calibre_20"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> - </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求未开始 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> FIN </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 请求成功完成 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> INTR </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求被客户端中断或被代理 / 服务器终止 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> TIMEOUT </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 请求被代理 / 服务器超时 </span>
+</td></tr></table><p class="calibre_">表 21-7 列出了有效的网景缓存代码。<sup class="calibre4"><small class="calibre5"><span class="calibre6">1</span></small></sup></p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">1：表 21-7 列出了网景缓存结果代码。</span></small></sup></p><p class="calibre_"><span class="bold">表21-7　网景缓存代码</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_20"><span class="calibre7"><span class="bold"> 代　　码 </span></span>
+</th><th valign="top" class="calibre_20"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> - </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 资源不可缓存 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> WRITTEN </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 资源被写入了缓存 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> REFRESHED </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 资源被缓存，且被刷新了 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> NO-CHECK </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 返回已缓存的资源，未进行新鲜性检查 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> UP-TO-DATE </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 返回已缓存的资源，进行了新鲜性检查 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> HOST-NOT-AVAILABLE </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 返回已缓存的资源。由于远程服务器不可用，所以未进行新鲜性检查 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> CL-MISMATCH </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 未将资源写入缓存。由于 </span><span class="calibre11"><tt class="calibre8">Content-Length </tt></span><span class="calibre7"> 与资源尺寸不匹配，放弃了写操作</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> ERROR </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 因为出错，资源未被写入缓存。比如，出现了超时，或客户端放弃了此事务 </span>
+</td></tr></table><p class="calibre_">与很多其他 HTTP 应用程序一样，网景应用程序也有其他的日志格式，包括一种灵活日志格式和一种管理者输出自定义日志字段的方式。这些格式给予管理者更大的控制权，并可以选择在日志中报告 HTTP 事务处理的哪些部分（首部、状态、尺寸等），以自定义其日志。</p><p class="calibre_">由于很难预测管理者希望从其日志中获取哪些信息，才添加了管理者配置自定义格式的能力。很多其他的代理和服务器都有发布自定义日志的能力。</p><p class="calibre_"><span class="calibre3"><span class="bold">21.2.5　Squid代理日志格式</span></span></p><p class="calibre_">Squid 代理缓存（<a href="http://www.squid-cache.org">http://www.squid-cache.org</a>）是 Web 上一个很古老的部分。其起源可以回溯到一个早期的 Web 代理缓存项目（ftp://ftp.cs.colorado.edu/pub/techreports/schwartz/Harvest.Conf.ps.Z）。Squid 是开源社团多年来扩展增强的一个开源项目。有很多工具可以用来辅助管理 Squid 应用程序，包括一些有助于处理、审核及开发其日志的工具。很多后继代理缓存都为自己的日志使用了 Squid 格式，这样才能更好地利用这些工具。</p><p class="calibre_">Squid 日志条目的格式相当简单。表 21-8 总结了该日志格式的字段。</p><p class="calibre_"><span class="bold">表21-8　Squid日志格式字段</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_70"><span class="calibre7"><span class="bold"> 字　　段 </span></span>
+</th><th valign="top" class="calibre_44"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> timestamp </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求到达时的时间戳，是从格林尼治标准时间 1970 年 1 月 1 日开始的秒数 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> time-elapsed </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 请求和响应通过代理传输所经历的时间（以毫秒为单位） </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> host-ip </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 客户端（请求端）主机的 IP 地址 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> result-code/status </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> result 字段是 Squid 类型的，用来说明在此请求过程中代理采取了什么动作；<sup class="calibre14"><small class="calibre5"><span class="calibre13">a </span></small></sup></span><span class="calibre7"> code 字段是代理发送给客户端的HTTP 响应代码</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> size </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 代理响应客户端的字节长度，包括 HTTP 响应首部和主体 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> method </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 客户端请求的 HTTP 方法 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> url </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 客户端请求中的URL<sup class="calibre14"><small class="calibre5"><span class="calibre13">b </span></small></sup></span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> rfc931-ident<sup class="calibre14"><small class="calibre5"><span class="calibre13">c </span></small></sup></span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 客户端经过认证的用户名<sup class="calibre14"><small class="calibre5"><span class="calibre13">d </span></small></sup></span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> hierarchy/from </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 与网景格式中的 route 字段一样，hierarchy 字段说明了代理向客户端发送请求时经由的路径。<sup class="calibre14"><small class="calibre5"><span class="calibre13">e </span></small></sup></span><span class="calibre7">from 字段说明了代理用来发起请求的服务器的名称</span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> content-type </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 代理响应实体的</span><span class="calibre11"><tt class="calibre8">Content-Type </tt></span>
+</td></tr></table><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">a：表 21-9 列出了各种结果代码及其含义。</span></small></sup></p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">b：回顾第 2 章，代理通常会记录下整条请求 URL，这样如果 URL 中有用户和密码组件，代理就会在不经意间记录下此信息。</span></small></sup></p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">c：rfc931-ident、hierarchy/from 和 content-type 字段是在 Squid 1.1 中添加的。早期版本中都没有这些字段。</span></small></sup></p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">d：RFC 931 描述了这种认证方式中使用的 ident 查找。</span></small></sup></p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">e：</span><a href="http://squid.nlanr.net/Doc/FAQ/FAQ-6.html#ss6.6"><span class="calibre6">http://squid.nlanr.net/Doc/FAQ/FAQ-6.html#ss6.6</span></a><span class="calibre6"> 列出了所有有效的 Squid hierarchy 代码。</span></small></sup></p><p class="calibre_">例 21-5 给出了一个 Squid 日志格式条目的例子。</p><blockquote class="calibre_21"><span class="bold">例 21-5</span>　Squid 日志格式</blockquote><blockquote class="calibre_21"><span class="calibre7"><tt class="calibre8">99823414 3001 209.1.32.44 TCP_MISS/200 4087 GET http://www.joeshardware.<br class="calibre2"/>com - DIRECT/<br class="calibre2"/>proxy.com text/html<br class="calibre2"/></tt></span></blockquote><p class="calibre_22">这些字段的值如下所示。</p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_20"><span class="calibre7"><span class="bold"> 字　　段 </span></span>
+</th><th valign="top" class="calibre_20"><span class="calibre7"><span class="bold"> 值 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> timestamp </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 99823414 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> time-elapsed </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 3001 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> host-ip </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 209.1.32.44 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> action-code </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> TCP_MISS </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> status </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 200 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> size </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 4087 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> method </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> GET </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> URL </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> </span><a href="http://www.joes-hardware.com"><span class="calibre7">http://www.joes-hardware.com </span></a>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> RFC 931 ident </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> - </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> hierarchy </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> DIRECT<sup class="calibre14"><small class="calibre5"><span class="calibre13">a </span></small></sup></span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> from </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> proxy.com </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> content-type </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> text/html </span>
+</td></tr></table><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">a：DIRECT Squid hierarchy 值与网景日志格式中的 DIRECT route 值一样。</span></small></sup></p><p class="calibre_">表 21-9 列出了各种 Squid 结果代码。<sup class="calibre4"><small class="calibre5"><span class="calibre6">2</span></small></sup></p><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">2：这些行为代码中有几个通常是处理 Squid 代理缓存的内部行为，因此其他使用了 Squid 日志格式的代理并没有使用全部的代码。</span></small></sup></p><p class="calibre_"><span class="bold">表21-9　Squid结果代码</span></p><p class="calibre2" style="margin:0pt; border:0pt; height:1em"> </p><table valign="top" class="calibre_14"><tr valign="top" class="calibre9"><th valign="top" class="calibre_138"><span class="calibre7"><span class="bold"> 行　　为 </span></span>
+</th><th valign="top" class="calibre_35"><span class="calibre7"><span class="bold"> 描　　述 </span></span>
+</th></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> TCP_HIT </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 资源的有效副本是由缓存提供的 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> TCP_MISS </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 资源不在缓存中 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> TCP_REFRESH_HIT </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 资源在缓存中，但需要进行新鲜性检查。代理与服务器再次验证了资源，发现缓存中的副本确实还是新鲜的 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> TCP_REF_FAIL_HIT </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 资源在缓存中，但需要进行新鲜性检查。但再验证失败了（可能是代理无法连接到服务器），因此返回的是“过期”的资源 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> TCP_REFRESH_MISS </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 资源在缓存中，但需要进行新鲜性检查。在与服务器进行验证的时候，代理得知缓存中的资源过期了，并收到一个新的副本 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> TCP_CLIENT_REFRESH_MISS </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 请求端发送了一个 </span><span class="calibre11"><tt class="calibre8">Pragma: no-cache</tt></span><span class="calibre7">，或类似的 </span><span class="calibre11"><tt class="calibre8">Cache-Control </tt></span><span class="calibre7"> 指令，命令代理必须去获取资源</span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> TCP_IMS_HIT </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 请求端发布了一个条件请求，对资源的已缓存副本进行验证 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> TCP_SWAPFAIL_MISS </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 代理认为资源位于缓存中，但出于某些原因无法访问该资源 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> TCP_NEGATIVE_HIT </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 返回已缓存的响应，但响应是否定的已缓存响应。Squid 支持对资源错误信息的缓存（比如，缓存 404 Not Found 响应）。这样，如果有多条对某无效资源的请求都经过这个代理缓存，就可以由这个代理缓存提供错误信息 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> TCP_MEM_HIT </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 资源的有效副本是由缓存提供的，资源位于代理缓存的内存中（与必须访问磁盘才能获取已缓存资源的方式相反） </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> TCP_DENIED </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 对此资源的请求被否决了，可能是请求端没有请求此资源的权利 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> TCP_OFFLINE_HIT </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 所请求的资源是在离线状态下从缓存中解析出来的。Squid（或另一个使用此格式的代理）处于离线模式时，资源是未经验证的 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> UDP_* </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> UDP_* 代码说明请求是通过到代理的 UDP 接口收到的。HTTP 通常会使用 TCP 传输协议，因此这些请求使用的都不是 HTTP 协议<sup class="calibre14"><small class="calibre5"><span class="calibre13">a </span></small></sup></span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> UDP_HIT </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 资源的有效副本是由缓存提供的 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> UDP_MISS </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 资源不在缓存中 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> UDP_DENIED </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 对此资源的请求被否决了，可能是由于请求端没有请求此资源的权限 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> UDP_INVALID </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 代理收到的请求是无效的 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> UDP_MISS_NOFETCH </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> Squid 在特定的操作模式下，或在缓存常见错误的缓存中使用。会返回缓存未命中，而且也没有获得资源 </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> NONE </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 有时与错误信息一起记录 </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> TCP_CLIENT_REFRESH </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 参见TCP_CLIENT_REFRESH_MISS </span>
+</td></tr><tr valign="top" class="calibre_17"><td valign="top" class="calibre10"><span class="calibre7"> TCP_SWAPFAIL </span><span class="calibre_18">
+</span></td><td valign="top" class="calibre10"><span class="calibre7"> 参见TCP_SWAPFAIL_MISS </span><span class="calibre_18">
+</span></td></tr><tr valign="top" class="calibre9"><td valign="top" class="calibre10"><span class="calibre7"> UDP_RELOADING </span>
+</td><td valign="top" class="calibre10"><span class="calibre7"> 参见UDP_MISS_NOFETCH </span>
+</td></tr></table><p class="calibre_"><sup class="calibre4"><small class="calibre5"><span class="calibre6">a：Squid 有自己的用于发起这些请求的协议：ICP。这是缓存到缓存的请求所使用的协议。更多信息请参见 </span><a href="http://www.squid-cache.org"><span class="calibre6">http://www.squid-cache.org</span></a><span class="calibre6">。</span></small></sup></p><div class="mbp_pagebreak" id="calibre_pb_196"></div>
+</body></html>
