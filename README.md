@@ -2,6 +2,7 @@
 
 ## 更新日志: ##
 
+> 2017-07-05  add adb tip
 
 > 2017-06-07  add gradle learning materials
 
