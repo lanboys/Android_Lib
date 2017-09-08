@@ -18,8 +18,4 @@ git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(ye
 
 git merge  --no-ff 
 git merge  --squash
-
-
-http://blog.csdn.net/rockrockwu/article/details/33740711
-http://www.cnblogs.com/ungshow/p/3515161.html
-https://segmentfault.com/q/1010000002477106
+ 
