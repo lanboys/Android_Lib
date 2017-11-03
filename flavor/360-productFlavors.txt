@@ -1,0 +1,14 @@
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel Market360 Market360|Market360
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel WanDouJia WanDouJia|WanDouJia
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel HuaWei HuaWei|HuaWei
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel XiaoMi XiaoMi|XiaoMi
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel BaiDu BaiDu|BaiDu
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel YingYongBao YingYongBao|YingYongBao
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel MeiZu MeiZu|MeiZu
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel AnZhi AnZhi|AnZhi
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel vivo vivo|vivo
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel oppo oppo|oppo
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel Jzk Jzk|Jzk
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel ZhuShou91 ZhuShou91|ZhuShou91
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel YingYongHui YingYongHui|YingYongHui
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel AndroidMarket AndroidMarket|AndroidMarket
