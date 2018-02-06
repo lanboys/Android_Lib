@@ -8,7 +8,9 @@ UMENG_CHANNEL|com.growingio.android.GConfig.Channel MeiZu MeiZu|MeiZu
 UMENG_CHANNEL|com.growingio.android.GConfig.Channel AnZhi AnZhi|AnZhi
 UMENG_CHANNEL|com.growingio.android.GConfig.Channel vivo vivo|vivo
 UMENG_CHANNEL|com.growingio.android.GConfig.Channel oppo oppo|oppo
-UMENG_CHANNEL|com.growingio.android.GConfig.Channel Jzk Jzk|Jzk
 UMENG_CHANNEL|com.growingio.android.GConfig.Channel ZhuShou91 ZhuShou91|ZhuShou91
 UMENG_CHANNEL|com.growingio.android.GConfig.Channel YingYongHui YingYongHui|YingYongHui
 UMENG_CHANNEL|com.growingio.android.GConfig.Channel AndroidMarket AndroidMarket|AndroidMarket
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel JzkWeb JzkWeb|JzkWeb
+UMENG_CHANNEL|com.growingio.android.GConfig.Channel JzkApp JzkApp|JzkApp
+
