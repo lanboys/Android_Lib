@@ -10,6 +10,8 @@ IdentityFile ~/.ssh/id_rsa
 # $ssh -T git@lanboys1225.github.com  可以测试，成功后 Hi lanboys1225! You've successfully 
 # authenticated, but GitHub does not provide shell access.
 
+# 这个网站用如下代码进行推送  git clone git@lanboys1225.github.com:lanboys1225/retrofit.git
+
 Host lanboys1225.github.com  
 HostName github.com
 IdentityFile ~/.ssh/id_rsa_lanboys1225
