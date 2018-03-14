@@ -1,0 +1,15 @@
+# default                                                                       
+# $ssh -T git@github.com 可以测试，成功后 Hi lanboys! You've successfully 
+# authenticated, but GitHub does not provide shell access.
+
+Host github.com  
+HostName github.com
+IdentityFile ~/.ssh/id_rsa
+
+# lanboys1225                                                                
+# $ssh -T git@lanboys1225.github.com  可以测试，成功后 Hi lanboys1225! You've successfully 
+# authenticated, but GitHub does not provide shell access.
+
+Host lanboys1225.github.com  
+HostName github.com
+IdentityFile ~/.ssh/id_rsa_lanboys1225
