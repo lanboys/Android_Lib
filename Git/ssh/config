@@ -1,17 +1,43 @@
-# default                                                                       
-# $ssh -T git@github.com 可以测试，成功后 Hi lanboys! You've successfully 
-# authenticated, but GitHub does not provide shell access.
 
-Host github.com  
-HostName github.com
-IdentityFile ~/.ssh/id_rsa
+# ================================1======================================================                                                                
+# 默认的
+Host lanboys.github 
+  HostName github.com
+  # User bing # 不知道干啥用
+  # Port 22 # 默认是22
+  IdentityFile ~/.ssh/id_rsa
 
-# lanboys1225                                                                
-# $ssh -T git@lanboys1225.github.com  可以测试，成功后 Hi lanboys1225! You've successfully 
-# authenticated, but GitHub does not provide shell access.
+# ================================2======================================================                                                             
+Host lanboys1225.github
+  HostName github.com
+  IdentityFile ~/.ssh/id_rsa_lanboys1225
 
-# 这个网站用如下代码进行推送  git clone git@lanboys1225.github.com:lanboys1225/retrofit.git
+# $ssh -T git@lanboys1225.github  其中 lanboys1225.github 为网络中域名，或者本文件设置的 Host
+# 用如下代码进行推送  git clone git@lanboys1225.github.com:lanboys1225/retrofit.git
 
-Host lanboys1225.github.com  
-HostName github.com
-IdentityFile ~/.ssh/id_rsa_lanboys1225
+# ================================3=======================================================
+Host lanbing.mujinnong 
+  HostName git.mujinnong.com
+  Port 7990
+  IdentityFile ~/.ssh/id_rsa_lanbing
+
+# $ ssh -T git@lanbing.mujinnong
+# ssh_exchange_identification: Connection closed by remote host
+# 检查有域名，但是不知道为啥被 远程host关闭了，最终验证不成功
+
+# ================================4=======================================================
+Host lanbing.os 
+  HostName git.oschina.net
+  IdentityFile ~/.ssh/id_rsa_lanbing
+
+# $ ssh -T git@lanbing.os
+# The authenticity of host 'git.oschina.net (116.211.167.14)' can't be established.
+# ECDSA key fingerprint is SHA256:FQGC9Kn/eye1W8icdBgrQp+KkGYoFgbVr17bmjey0Wc.
+# Are you sure you want to continue connecting (yes/no)? no
+# Host key verification failed.
+# 检查有这个域名的话，会询问是否继续？如果yes, 则会向 known_hosts 文件中添加 一个该域名网站的公钥，建立认证，下次就不会再次询问了
+# 同通过  StrictHostKeyChecking no  来取消首次的询问，直接向 known_hosts添加文件，如下方设置 
+
+# ================================设置=======================================================
+#   StrictHostKeyChecking no
+#   UserKnownHostsFile /dev/null
